@@ -1,0 +1,122 @@
+//display
+.d-flex{
+  display:flex;
+}
+
+.flex-row{
+  flex-direction:row;
+}
+.flex-col{
+  flex-direction:column;
+}
+.justify-center{
+  justify-content: center;
+}
+.align-items-center{
+  align-items: center;
+}
+.flex-wrap{
+  flex-wrap:wrap;
+}
+.justify-between{
+  justify-content:space-between;
+}
+.blk{
+  display:block;
+}
+.in-blk{
+  display:inline-block;
+}
+//==================MARGINS ======================
+.m-auto{
+  margin:auto;
+}
+.mr-auto{
+  margin-right:auto;
+}
+.ml-auto{
+  margin-left:auto;
+}
+
+.mt-30{
+  margin-top:30px;
+}
+//===============POSITIONS======================
+.abs{
+  position:absolute;
+}
+.rel{
+  position:relative;
+}
+.none{
+  display:none;
+}
+//============ALIGNMENTS
+.text-left{
+text-align:left;
+}
+.text-right{
+  text-align:right;
+}
+.text-center{
+  text-align:center;
+}
+
+
+//================================
+//FLOATS
+//================================
+.float-left{
+  float:left;
+}
+.float-right{
+  float:right;
+}
+.float-clear{
+  clear:both !important;
+}
+//text transform
+.capitalize{
+  text-transform:capitalize;
+}
+.uppercase{
+  text-transform:uppercase;
+}
+
+.link{
+
+}
+
+.no-border{
+  border:0;
+}
+//text-colors
+.text-white{
+  color:#fff !important;
+}
+
+//border-colors
+.border-white{
+  border-color:#fff !important;
+}
+
+
+//========================FONT WEIGHTS=========================//
+.bold{
+  font-weight:bold;
+}
+
+
+
+
+.transparent{
+  background-color:transparent;
+}
+.no-outline{
+  outline:0;
+}
+.clearfix{
+  content:"";
+  display:table;
+  content:both;
+}

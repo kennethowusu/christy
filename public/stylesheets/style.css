@@ -1,0 +1,147 @@
+button:focus {
+  outline: 0; }
+
+button {
+  background-color: transparent; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style-type: none; }
+
+body {
+  font-family: "PT sans", "sans-serif"; }
+
+a:hover {
+  text-decoration: none; }
+
+.d-flex {
+  display: flex; }
+
+.flex-row {
+  flex-direction: row; }
+
+.flex-col {
+  flex-direction: column; }
+
+.justify-center {
+  justify-content: center; }
+
+.align-items-center {
+  align-items: center; }
+
+.flex-wrap {
+  flex-wrap: wrap; }
+
+.justify-between {
+  justify-content: space-between; }
+
+.blk {
+  display: block; }
+
+.in-blk {
+  display: inline-block; }
+
+.m-auto {
+  margin: auto; }
+
+.mr-auto {
+  margin-right: auto; }
+
+.ml-auto {
+  margin-left: auto; }
+
+.mt-30 {
+  margin-top: 30px; }
+
+.abs {
+  position: absolute; }
+
+.rel {
+  position: relative; }
+
+.none {
+  display: none; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.float-left {
+  float: left; }
+
+.float-right {
+  float: right; }
+
+.float-clear {
+  clear: both !important; }
+
+.capitalize {
+  text-transform: capitalize; }
+
+.uppercase {
+  text-transform: uppercase; }
+
+.no-border {
+  border: 0; }
+
+.text-white {
+  color: #fff !important; }
+
+.border-white {
+  border-color: #fff !important; }
+
+.bold {
+  font-weight: bold; }
+
+.transparent {
+  background-color: transparent; }
+
+.no-outline {
+  outline: 0; }
+
+.clearfix {
+  content: "";
+  display: table;
+  content: both; }
+
+.main-header {
+  background-color: #ef426c;
+  padding: 15px 20px;
+  width: 100%;
+  white-space: nowrap; }
+
+.header-container {
+  width: 100%; }
+
+.fav {
+  margin-right: 15px; }
+
+.search-field {
+  border: 0;
+  border-right: none;
+  padding: 5px 30px 5px 16px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  height: 30px; }
+
+.search-btn {
+  border: 0;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border-left: none;
+  background-color: #fff;
+  height: 30px; }
+
+.search-icon {
+  top: 0;
+  left: 0; }
+
+/*# sourceMappingURL=style.css.map */

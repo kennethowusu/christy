@@ -1,0 +1,47 @@
+.main-header{
+  background-color:$lightred;
+  padding:15px 20px;
+  width:100%;
+  white-space: nowrap;
+
+
+}
+
+.header-container{
+  width:100%;
+}
+.menu{
+
+}
+.logo{
+
+}
+.search{
+
+}
+
+.fav{
+  margin-right:15px;
+}
+.search-field{
+ border:0;
+ border-right:none;
+ padding: 5px 30px 5px 16px;
+ border-top-left-radius: 100px;
+ border-bottom-left-radius: 100px;
+ height:30px;
+}
+
+.search-btn{
+  border:0;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border-left:none;
+  background-color:#fff;
+  height:30px;
+
+}
+.search-icon{
+top:0;
+left:0;
+}

@@ -1,0 +1,36 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  //- link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css')
+  //- link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css')
+  //- link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/fonts/slick.svg')
+  link(rel='stylesheet',href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap-reboot.min.css")
+  link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet')
+  link(rel='stylesheet',href='stylesheets/style.css')
+  script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js')
+
+
+
+body
+  header.main-header
+    section.header-container.clearfix
+      button.float-left.menu.no-border.transparent
+        img(src='/images/menu.svg')
+      
+      a.logo.float-left(href='/')
+        img(src='/images/logo.svg')
+      
+      form.search.in-blk.float-clear
+        input.search-field.no-outline(type='text',placeholder="Search")
+        button.search-btn.text-center
+          img.search-icon(src='/images/search.svg')
+      
+      a.fav.n-blk.float-right(href="#")
+        img(src="/images/bag.svg")
+      
+      a.bag.in-blk.float-right(href='#')
+        img(src="/images/favourite.svg")
+  block content
