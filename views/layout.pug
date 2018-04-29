@@ -16,21 +16,21 @@ head
 
 body
   header.main-header
-    section.header-container.clearfix
-      button.float-left.menu.no-border.transparent
+    section.header-container.d-flex
+      button.menu.no-border.transparent
         img(src='/images/menu.svg')
       
-      a.logo.float-left(href='/')
+      a.logo(href='/')
         img(src='/images/logo.svg')
       
-      form.search.in-blk.float-clear
+      form.search.d-flex
         input.search-field.no-outline(type='text',placeholder="Search")
         button.search-btn.text-center
           img.search-icon(src='/images/search.svg')
       
-      a.fav.n-blk.float-right(href="#")
-        img(src="/images/bag.svg")
-      
-      a.bag.in-blk.float-right(href='#')
+      a.fav(href="#")
         img(src="/images/favourite.svg")
+      
+      a.bag(href='#')
+        img(src="/images/bag.svg")
   block content

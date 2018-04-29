@@ -114,15 +114,34 @@ a:hover {
 
 .main-header {
   background-color: #ef426c;
-  padding: 15px 20px;
-  width: 100%;
-  white-space: nowrap; }
+  padding: 15px;
+  width: 100%; }
+  @media (min-width: 1050px) {
+    .main-header {
+      padding: 20px; } }
 
 .header-container {
-  width: 100%; }
+  width: 100%;
+  justify-content: center;
+  align-items: center; }
+
+.menu {
+  margin-right: 10px; }
+
+.logo {
+  margin-right: 10px; }
+
+.search {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  max-width: 578px; }
 
 .fav {
-  margin-right: 15px; }
+  margin-left: 10px;
+  margin-right: 10px; }
 
 .search-field {
   border: 0;
@@ -130,7 +149,8 @@ a:hover {
   padding: 5px 30px 5px 16px;
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
-  height: 30px; }
+  height: 30px;
+  width: 100%; }
 
 .search-btn {
   border: 0;
