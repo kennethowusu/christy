@@ -13,11 +13,11 @@ head
   script(src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js')
 
 
-
+  
 body
   header.main-header
     section.header-container.d-flex
-      button.menu.no-border.transparent
+      button#menu-icon.menu.no-border.transparent
         img(src='/images/menu.svg')
       
       a.logo(href='/')
@@ -33,4 +33,105 @@ body
       
       a.bag(href='#')
         img(src="/images/bag.svg")
+          
+    nav.abs.res-nav
+        header.header
+          section.user-acct-action
+            p.text-white.em-8 Hi! Get more out of Glammycare.com 
+            ul.d-flex
+              li.mr-15 #[a.bold.text-white(href="#") Create Account]
+              li #[a.bold.text-white(href="#") Sign In]
+          
+          section.menu-section
+            .section-divider
+              ul
+                li #[a(href="#") Reorder Items]
+                li #[a(href="#") Track Order]
+                li #[a(href="#") Your Account]
+                li #[a(href="#") Lists]
+          section.menu-section
+            .section-divider
+              ul
+              li#makeup.main-nav.blk.no-border.transparent Makeup
+              li#bath-body.main-nav.blk.no-border.transparent Bath & Body
+              li#men.main-nav.blk.no-border.transparent Men
+        //-SUB NAVS SECTION  FOR MAKE UP 
+        section.sub-navs#makeup
+            .back-cont
+              p.back.bold Back
+            ul.sub-nav-cont
+              p.bold Makeup
+              li #[a#face.sub-nav(href="#") Face ]
+              li #[a#eye.sub-nav(href="#") Eye]
+              li #[a#lips.sub-nav(href="#") Lips]
+              li #[a#makeup-brushes-tools.sub-nav(href="#") Makeup Brushes & Tools]
+              
+        section.sub-navs#bath-body
+            .back-cont
+              p.back.bold Back
+            ul.sub-nav-cont
+              p.bold Makeup
+              li #[a.sub-nav(href="#") Bath & Shower]
+              li #[a.sub-nav(href="#") Hand & Foot]
+              
+        section.sub-navs#men
+            .back-cont
+              p.back.bold Back
+            ul.sub-nav-cont
+              p.bold Men
+              li #[a.sub-nav(href="#") Skin Care]
+              li #[a.sub-nav(href="#") Shaving]
+                    
+        .nav-container#makeup
+          //- SUB SUB NAV FOR FACE
+          section.sub-sub-navs#face
+              .sub-back-cont
+                p.sub-back.bold Back
+              ul.sub-sub-nav-cont
+                p.bold Face
+                li #[a(href="#") Foundation ]
+                li #[a(href="#") Face Powder]
+                li #[a(href="#") Concealer]
+                li #[a(href="#") Blush]
+                li #[a(href="#") Contouring]
+                li #[a(href="#") Bronzer]
+                li #[a(href="#") Setting Spray]
+                li #[a(href="#") Makeup Remover]
+          
+          section.sub-sub-navs#eye
+              .sub-back-cont
+                p.sub-back.bold Back
+              ul.sub-sub-nav-cont
+                p.bold Eye
+                li #[a(href="#") Eyeshadow Pallete ]
+                li #[a(href="#") Mascara]
+                li #[a(href="#") Eye Brows]
+                li #[a(href="#") Eye Lashes]
+                li #[a(href="#") Eye Liner]
+
+                  
+          section.sub-sub-navs#lips
+                .sub-back-cont
+                  p.sub-back.bold Back
+                ul.sub-sub-nav-cont
+                  p.bold Lips
+                  li #[a(href="#") Lipstick ]
+                  li #[a(href="#") Lip Liner]
+                  li #[a(href="#") Lip Treatments]
+                              
+                        
+                        
+          section.sub-sub-navs#makeup-brushes-tools
+                .sub-back-cont
+                  p.sub-back.bold Back
+                ul.sub-sub-nav-cont
+                  p.bold Makeup Bruhes & Tools
+                  li #[a(href="#") Eyeshadow Pallete ]
+                  li #[a(href="#") Mascara]
+                  li #[a(href="#") Eye Brows]
+                  li #[a(href="#") Eye Lashes]
+                  li #[a(href="#") Eye Liner]
+  section.text-center.sec-notice    
+     p.notice.bold.no-margin   Free Delivery within Accra                   
   block content
+  script(src='/javascripts/script.js')  

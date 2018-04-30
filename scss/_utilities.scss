@@ -41,6 +41,21 @@
 .mt-30{
   margin-top:30px;
 }
+.mr-15{
+  margin-right:15px;
+}
+.ml-15{
+  margin-left:15px;
+}
+.mr-20{
+  margin-right:20px;
+}
+.ml-20{
+  margin-left:20px;
+}
+.no-margin{
+  margin:0;
+}
 //===============POSITIONS======================
 .abs{
   position:absolute;
@@ -106,7 +121,12 @@ text-align:left;
   font-weight:bold;
 }
 
-
+//==============================
+//FONT SIZES
+//==============================
+.em-8{
+  font-size:.8em;
+}
 
 
 .transparent{
@@ -119,4 +139,7 @@ text-align:left;
   content:"";
   display:table;
   content:both;
+}
+.bg-white{
+  background-color:#ffffff;
 }
