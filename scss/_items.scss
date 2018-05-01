@@ -1,0 +1,34 @@
+.container{
+  margin-left: 260px;
+}
+
+.item{
+  width:168px;
+  height:301;
+  overflow:hidden;
+  background-color:#ffffff;
+  box-shadow: 0 0 3px #898383;
+  text-align: center;
+  padding-bottom: 20px;
+  & a{
+    display:block;
+  }
+
+  & .item-pic{
+    width:100%;
+  }
+}
+
+
+.item-details{
+  text-align: center;
+
+ & .item-price{
+   color:$lightred;
+ }
+}
+.i-title{
+  font-size:14px;
+  font-weight: 300;
+  color:#000;
+}

@@ -43,6 +43,32 @@ $('.main-nav').hover(function(e){
   }
 });
 
-$('.nav-container.force-flex').on("mouseenter",function(){
-  alert("Mouse Entered this");
+$('.nav-container').on("mouseenter",function(e){
+  $(e.target).toggleClass("d-flex");
+});
+
+
+
+
+
+
+
+
+//=========================
+//FOR SLICK
+//=========================
+$(".banner-container").slick({
+  infinite: true,
+   arrows: true,
+   dots:true,
+   autoplay:true,
+   autoplayspeed:400
+});
+
+
+$(".products-section").slick({
+  infinite: true,
+   arrows: true,
+   dots:true,
+   slidesToShow:3
 });

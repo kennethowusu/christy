@@ -336,4 +336,42 @@ a:hover {
 .force-flex {
   display: flex; }
 
+.site-banner {
+  width: 100%; }
+  .site-banner .banner-container {
+    width: 100%;
+    overflow: hidden; }
+    .site-banner .banner-container img {
+      width: 100%;
+      height: 100%; }
+  @media (min-width: 1005px) {
+    .site-banner {
+      margin-left: 260px !important; } }
+
+.container {
+  margin-left: 260px; }
+
+.item {
+  width: 168px;
+  height: 301;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 0 3px #898383;
+  text-align: center;
+  padding-bottom: 20px; }
+  .item a {
+    display: block; }
+  .item .item-pic {
+    width: 100%; }
+
+.item-details {
+  text-align: center; }
+  .item-details .item-price {
+    color: #ef426c; }
+
+.i-title {
+  font-size: 14px;
+  font-weight: 300;
+  color: #000; }
+
 /*# sourceMappingURL=style.css.map */
