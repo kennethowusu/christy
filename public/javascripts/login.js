@@ -60,7 +60,7 @@ email.focusout(function(){
 })
 
 password.focusout(function(){
-  if(password.val().length>6){
+  if(password.val().length>=6){
     $('.password-label').show();
     $('.password-error').hide();
     password.removeClass('border-danger');

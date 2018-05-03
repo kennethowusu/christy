@@ -1,28 +1,27 @@
 extends partials/loginLayout
 block content 
   
-  h1.login-header.blk.text-center Sign in to your account
+  h1.login-header.blk.text-center Create your account
   
   .form-container
-
-        
-        
-      label#email-validate(for="firstname")
+    form.form-signup(method="post",action="")
+  
+      label#email-validate(for="email")
         span.email-label Email Address*
         span.email-error.d-flex.align-items-center
           img.error(src="/images/error.svg")
           span.text-danger Please enter a valid email address.
       div.mb-15
-        input#email.input.blk.control(type="email",name="firstname")
+        input#email.input.blk.control(type="email",name="email")
           
           
-      label#password-validate(for="firstname")
+      label#password-validate(for="password")
         span.password-label Password*
         span.password-error.d-flex.align-items-center
           img.error(src="/images/error.svg")
           span.text-danger Your password must contain a minimum of 6 characters
       div.rel
-        input#password.input.blk.control(type="password",name="firstname")
+        input#password.input.blk.control(type="password",name="password")
         button.no-border.transparent#toggle-hide.abs(type="button") hide  
       
       div
@@ -31,5 +30,5 @@ block content
     
     
       div.option-msg-container.text-center.rel.d-flex
-       span.blk.text-center.option-head.abs.bg-white Don't have an Account?
+       span.blk.text-center.option-head.abs.bg-white Already have an Account?
       a.input.signin.control.blk.text-center.text-white(href="/account/signup") Create Account
