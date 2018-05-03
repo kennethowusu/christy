@@ -103,7 +103,7 @@ text-align:left;
 }
 
 .no-border{
-  border:0;
+  border:none;
 }
 //text-colors
 .text-white{
@@ -142,4 +142,13 @@ text-align:left;
 }
 .bg-white{
   background-color:#ffffff;
+}
+.control{
+  width:100%;
+}
+.input{
+  border:1px solid #d4cfcf;
+  border-radius:4px;
+  padding:5px 8px;
+
 }

@@ -1,21 +1,31 @@
 .container{
-  margin-left: 260px;
+ text-align: center;
+  background-color:#ffffff;
+@media(min-width:1005px){
+    margin-left: 260px;
+}
 }
 
+.products-section{
+  background-color:$pbgcolor;
+  padding-bottom:30px;
+}
 .item{
-  width:168px;
+  width:168px !important;
   height:301;
   overflow:hidden;
-  background-color:#ffffff;
+
   box-shadow: 0 0 3px #898383;
   text-align: center;
   padding-bottom: 20px;
+  margin-right:15px;
   & a{
     display:block;
   }
 
   & .item-pic{
     width:100%;
+
   }
 }
 
@@ -31,4 +41,8 @@
   font-size:14px;
   font-weight: 300;
   color:#000;
+}
+.i-name{
+  font-weight:400;
+  margin-bottom:20px;
 }

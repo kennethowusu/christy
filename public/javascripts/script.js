@@ -43,11 +43,11 @@ $('.main-nav').hover(function(e){
   }
 });
 
-$('.nav-container').on("mouseenter",function(e){
-  $(e.target).toggleClass("d-flex");
-});
-
-
+// $('.nav-container').on("mouseenter",function(e){
+//   $(e.target).toggleClass("d-flex");
+// });
+//
+//
 
 
 
@@ -67,8 +67,9 @@ $(".banner-container").slick({
 
 
 $(".products-section").slick({
-  infinite: true,
    arrows: true,
    dots:true,
-   slidesToShow:3
+   sildesToScroll:2
+
+
 });
