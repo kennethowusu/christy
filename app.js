@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
+var MongoStore = require('connect-mongo')(session);
 var index = require('./routes/index');
 var users = require('./routes/users');
 var account = require('./routes/account');
@@ -25,9 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
   secret: 'glammy-session',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
+  resave: true,
+  saveUninitialized: false
+
 }))
 
 app.use('/', index);

@@ -73,6 +73,12 @@ a:hover {
 .no-margin {
   margin: 0; }
 
+.mb-15 {
+  margin-bottom: 15px; }
+
+.mb-20 {
+  margin-bottom: 20px; }
+
 .abs {
   position: absolute; }
 
@@ -111,6 +117,12 @@ a:hover {
 
 .text-white {
   color: #fff !important; }
+
+.text-danger {
+  color: red; }
+
+.border-danger {
+  border-color: red !important; }
 
 .border-white {
   border-color: #fff !important; }
@@ -414,7 +426,8 @@ a:hover {
   margin: auto; }
   .form-container label {
     margin: 0;
-    color: #4c4a4a; }
+    color: #4c4a4a;
+    font-size: 14px; }
   .form-container input {
     padding-top: 9px;
     padding-bottom: 9px; }
@@ -424,7 +437,7 @@ a:hover {
   @media (min-width: 470px) {
     .form-container {
       width: 360px;
-      box-shadow: 0 0 4px #aeaaaa;
+      box-shadow: 0 0 4px #d5d1d1;
       padding: 30px; } }
 
 .form-signup {
@@ -439,9 +452,29 @@ a:hover {
     opacity: .8; }
 
 .signin {
-  background-color: #ef426c; }
+  background-color: #ef426c;
+  margin-top: 25px; }
 
 .signin, .signup, #form-submit {
   padding: 9px 8px; }
+
+.email-error, .password-error, .firstname-error, .lastname-error {
+  display: none;
+  font-size: 14px; }
+
+img.error {
+  width: 12px;
+  height: 12px; }
+
+.option-msg-container {
+  margin-top: 25px;
+  border-bottom: 1px solid #000;
+  justify-content: center;
+  align-items: center; }
+  .option-msg-container .option-head {
+    top: -12px;
+    z-index: 6;
+    padding-left: 12px;
+    padding-right: 12px; }
 
 /*# sourceMappingURL=style.css.map */

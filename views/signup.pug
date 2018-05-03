@@ -7,24 +7,40 @@ block content
     form.form-signup(method="post",action="")
       p *required field
       
-      label(for="firstname") First name *
-      div
-        input.input.blk.control(type="text",name="firstname")
+      label(for="firstname") 
+        span.firstname-label First name*
+        span.firstname-error.d-flex.align-items-center
+          img.error(src="/images/error.svg")
+          span.text-danger Firstname is required.
+      div.mb-15
+        input#firstname.input.blk.control(type="text",name="firstname")
       
       
-      label(for="firstname") Last name *
-      div
-        input.input.blk.control(type="text",name="firstname")
+      label(for="lastname") 
+      span.lastname-label Last name*
+      span.lastname-error.d-flex.align-items-center
+        img.error(src="/images/error.svg")
+        span.text-danger Firstname is required.
+      div.mb-15
+        input#lastname.input.blk.control(type="text",name="lastname")
         
         
-      label#email-validate(for="firstname") Email address*
-      div
-        input.input.blk.control(type="email",name="firstname")
+      label#email-validate(for="firstname")
+        span.email-label Email Address*
+        span.email-error.d-flex.align-items-center
+          img.error(src="/images/error.svg")
+          span.text-danger Please enter a valid email address.
+      div.mb-15
+        input#email.input.blk.control(type="email",name="firstname")
           
           
-      label#password-validate(for="firstname") Password *
+      label#password-validate(for="firstname")
+        span.password-label Password*
+        span.password-error.d-flex.align-items-center
+          img.error(src="/images/error.svg")
+          span.text-danger Your password must contain a minimum of 6 characters
       div.rel
-        input.input.blk.control#password(type="password",name="firstname")
+        input#password.input.blk.control(type="password",name="firstname")
         button.no-border.transparent#toggle-hide.abs(type="button") hide  
       
       div
@@ -32,6 +48,6 @@ block content
 
     
     
-      div
-       p Already have an Account?
-       a.input.signin.control.blk.text-center.text-white(href="/account/signin") Sign In
+      div.option-msg-container.text-center.rel.d-flex
+       span.blk.text-center.option-head.abs.bg-white Already have an Account?
+      a.input.signin.control.blk.text-center.text-white(href="/account/signin") Sign In

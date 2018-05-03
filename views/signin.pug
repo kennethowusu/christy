@@ -1,0 +1,35 @@
+extends partials/loginLayout
+block content 
+  
+  h1.login-header.blk.text-center Sign in to your account
+  
+  .form-container
+
+        
+        
+      label#email-validate(for="firstname")
+        span.email-label Email Address*
+        span.email-error.d-flex.align-items-center
+          img.error(src="/images/error.svg")
+          span.text-danger Please enter a valid email address.
+      div.mb-15
+        input#email.input.blk.control(type="email",name="firstname")
+          
+          
+      label#password-validate(for="firstname")
+        span.password-label Password*
+        span.password-error.d-flex.align-items-center
+          img.error(src="/images/error.svg")
+          span.text-danger Your password must contain a minimum of 6 characters
+      div.rel
+        input#password.input.blk.control(type="password",name="firstname")
+        button.no-border.transparent#toggle-hide.abs(type="button") hide  
+      
+      div
+        button.input.control.transparent#form-submit.mt-30(type="submit") Sign In
+
+    
+    
+      div.option-msg-container.text-center.rel.d-flex
+       span.blk.text-center.option-head.abs.bg-white Don't have an Account?
+      a.input.signin.control.blk.text-center.text-white(href="/account/signup") Create Account

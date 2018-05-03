@@ -56,6 +56,12 @@
 .no-margin{
   margin:0;
 }
+.mb-15{
+  margin-bottom:15px;
+}
+.mb-20{
+  margin-bottom:20px;
+}
 //===============POSITIONS======================
 .abs{
   position:absolute;
@@ -110,7 +116,14 @@ text-align:left;
   color:#fff !important;
 }
 
+.text-danger{
+  color:red;
+}
+
 //border-colors
+.border-danger{
+  border-color:red !important;
+}
 .border-white{
   border-color:#fff !important;
 }

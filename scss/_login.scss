@@ -9,7 +9,7 @@
  & label{
    margin:0;
    color:#4c4a4a;
-
+   font-size:14px;
  }
 
  & input{
@@ -25,7 +25,7 @@
 
  @media(min-width:470px){
    width:360px;
-   box-shadow:0 0 4px #aeaaaa;
+   box-shadow:0 0 4px #d5d1d1;
    padding:30px;
  }
 }
@@ -48,10 +48,31 @@
 }
 .signin{
   background-color:$lightred;
+  margin-top:25px;
 }
 .signin,.signup,#form-submit{
   padding:9px 8px
 }
 #form-submit{
 
+}
+.email-error,.password-error,.firstname-error,.lastname-error{
+  display:none;
+  font-size:14px;
+}
+img.error{
+  width:12px;
+  height:12px;
+}
+.option-msg-container{
+  margin-top:25px;
+  border-bottom:1px solid #000;
+  justify-content: center;
+  align-items:center;
+  & .option-head{
+    top:-12px;
+    z-index:6;
+    padding-left:12px;
+    padding-right:12px;
+  }
 }
