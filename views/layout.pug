@@ -13,127 +13,57 @@ head
   script(src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js')
 
 
-  
-body
-  header.main-header
-    section.header-container.d-flex
-      button#menu-icon.menu.no-border.transparent
-        img.menu-svg(src='/images/menu.svg')
-      
-      a.logo(href='/')
-        img.logo-svg(src='/images/logo.svg')
-      
-      form.search.d-flex
-        input.search-field.no-outline(type='text',placeholder="Search")
-        button.search-btn.text-center
-          img.search-icon(src='/images/search.svg')
-      
-      a.fav(href="#")
-        img.fav-svg(src="/images/favourite.svg")
-      
-      a.bag(href='#')
-        img.bag-svg(src="/images/bag.svg")
-          
-    nav.abs.res-nav
-        header.header
-          section.user-acct-action
-            p.text-white.em-8 Hi! Get more out of Glammycare.com 
-            ul.d-flex
-    
-              li.mr-15 #[a.bold.text-white(href="#") Create Account]
-              li #[a.bold.text-white(href="#") Sign In]
-          
-          section.menu-section
-            .section-divider
-              ul
-                li #[a(href="#") Reorder Items]
-                li #[a(href="#") Track Order]
-                li #[a(href="#") Your Account]
-                li #[a(href="#") Lists]
-          section.menu-section
-            .section-divider
-              ul
-              li#makeup.main-nav.blk.no-border.transparent Makeup
-              li#bath-body.main-nav.blk.no-border.transparent Bath & Body
-              li#men.main-nav.blk.no-border.transparent Men
-        //-SUB NAVS SECTION  FOR MAKE UP 
-        section.sub-navs#makeup
-            .back-cont
-              p.back.bold Back
-            ul.sub-nav-cont
-              p.bold Makeup
-              li #[a#face.sub-nav(href="#") Face ]
-              li #[a#eye.sub-nav(href="#") Eye]
-              li #[a#lips.sub-nav(href="#") Lips]
-              li #[a#makeup-brushes-tools.sub-nav(href="#") Makeup Brushes & Tools]
-              
-        section.sub-navs#bath-body
-            .back-cont
-              p.back.bold Back
-            ul.sub-nav-cont
-              p.bold Makeup
-              li #[a.sub-nav(href="#") Bath & Shower]
-              li #[a.sub-nav(href="#") Hand & Foot]
-              
-        section.sub-navs#men
-            .back-cont
-              p.back.bold Back
-            ul.sub-nav-cont
-              p.bold Men
-              li #[a.sub-nav(href="#") Skin Care]
-              li #[a.sub-nav(href="#") Shaving]
-                    
-        .nav-container#makeup
-          //- SUB SUB NAV FOR FACE
-          section.sub-sub-navs#face
-              .sub-back-cont
-                p.sub-back.bold Back
-              ul.sub-sub-nav-cont
-                p.bold Face
-                li #[a(href="#") Foundation ]
-                li #[a(href="#") Face Powder]
-                li #[a(href="#") Concealer]
-                li #[a(href="#") Blush]
-                li #[a(href="#") Contouring]
-                li #[a(href="#") Bronzer]
-                li #[a(href="#") Setting Spray]
-                li #[a(href="#") Makeup Remover]
-          
-          section.sub-sub-navs#eye
-              .sub-back-cont
-                p.sub-back.bold Back
-              ul.sub-sub-nav-cont
-                p.bold Eye
-                li #[a(href="#") Eyeshadow Pallete ]
-                li #[a(href="#") Mascara]
-                li #[a(href="#") Eye Brows]
-                li #[a(href="#") Eye Lashes]
-                li #[a(href="#") Eye Liner]
 
-                  
-          section.sub-sub-navs#lips
-                .sub-back-cont
-                  p.sub-back.bold Back
-                ul.sub-sub-nav-cont
-                  p.bold Lips
-                  li #[a(href="#") Lipstick ]
-                  li #[a(href="#") Lip Liner]
-                  li #[a(href="#") Lip Treatments]
-                              
-                        
-                        
-          section.sub-sub-navs#makeup-brushes-tools
-                .sub-back-cont
-                  p.sub-back.bold Back
-                ul.sub-sub-nav-cont
-                  p.bold Makeup Bruhes & Tools
-                  li #[a(href="#") Eyeshadow Pallete ]
-                  li #[a(href="#") Mascara]
-                  li #[a(href="#") Eye Brows]
-                  li #[a(href="#") Eye Lashes]
-                  li #[a(href="#") Eye Liner]
-  section.text-center.sec-notice    
-     p.notice.bold.no-margin   Free Delivery within Accra                   
+body
+  header.main-header.d-flex.align-items-center
+    section.home-menu-cont.d-flex.justify-center.align-items-center 
+      a.logo.mr-auto(href="/") 
+        img#logo-img(src="/images/logo.svg")
+      
+      button.menu.transparent.no-border(type='button')
+        img#menu-img(src="/images/menu.svg")
+       
+    form.rel.ml-auto#form-search(method='get',action='/search')
+      input#search-field(type='text',placeholder="Search")
+      button.search.transparent.no-border.abs
+        img#search-img(src='/images/search.svg')
+    
+    button.wishlist.transparent.no-border(type='button')
+      img#wishlist-img(src='/images/wishlist.svg')
+      
+    button.basket.transparent.no-border(type='button')
+      img#basket-img(src="/images/basket.svg")
+    
+    div#nav-overlay.abs
+      section.nav-container
+        nav 
+          section.controller.rel.d-flex.justify-center.align-items-center
+            a.mr-auto(href="/")
+             img#logo-2(src="/images/logo.svg")
+            button.close.transparent.no-border
+             img#close(src="/images/close.svg")
+          
+          section.account
+            ul.account-list
+             li
+               a(href="#") #[img#signin(src='/images/signin.svg')] #[span Sign In]
+             li
+               a(href="#") #[img#track-order(src='/images/reorder.svg')] #[span Track Order]
+             li
+               a(href="#") #[img#add-user(src='/images/add-user.svg')] #[span Create Account]
+             li
+                a(href="#") #[img#help(src='/images/help.svg')] #[span Help] 
+                
+          section.account
+            ul.account-list
+              li
+                a(href="#") Makeup
+              li
+                a(href="#") Bath & Body
+              li
+                a(href="#") Men
+            
   block content
-  script(src="/javascripts/script.js")  
+  
   script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js")
+  script(src="/javascripts/script.js")
