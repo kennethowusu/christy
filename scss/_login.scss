@@ -49,6 +49,7 @@
 .signin{
   margin-top:25px;
   color:#000000;
+  border-radius:70px !important;
 }
 .signin,.signup,#form-submit{
   padding:9px 8px
@@ -56,6 +57,7 @@
 #form-submit{
   background-color:$lightred;
   color:#ffffff;
+  border-radius:70px !important;
 
 }
 .email-error,.password-error,.firstname-error,.lastname-error{
