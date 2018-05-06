@@ -47,13 +47,15 @@
    }
 }
 .signin{
-  background-color:$lightred;
   margin-top:25px;
+  color:#000000;
 }
 .signin,.signup,#form-submit{
   padding:9px 8px
 }
 #form-submit{
+  background-color:$lightred;
+  color:#ffffff;
 
 }
 .email-error,.password-error,.firstname-error,.lastname-error{

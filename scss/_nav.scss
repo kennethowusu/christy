@@ -66,16 +66,15 @@
 }
 #close{
   width:25px;
-  hegiht:25px;
+  height:25px;
 }
 
 #nav-overlay{
   top:0;
   left:0;
-  width:100%;
+  width:0;
   height:100%;
   background-color:rgba(0, 0, 0, 0.3);
-  display:none;
 }
 .nav-container{
   width:100%;

@@ -55,6 +55,12 @@ a:hover {
 .ml-auto {
   margin-left: auto; }
 
+.mt-20 {
+  margin-top: 20px; }
+
+.mt-15 {
+  margin-top: 15px; }
+
 .mt-30 {
   margin-top: 30px; }
 
@@ -218,15 +224,14 @@ a:hover {
 
 #close {
   width: 25px;
-  hegiht: 25px; }
+  height: 25px; }
 
 #nav-overlay {
   top: 0;
   left: 0;
-  width: 100%;
+  width: 0;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  display: none; }
+  background-color: rgba(0, 0, 0, 0.3); }
 
 .nav-container {
   width: 100%;
@@ -349,11 +354,15 @@ a:hover {
     opacity: .8; }
 
 .signin {
-  background-color: #ef426c;
-  margin-top: 25px; }
+  margin-top: 25px;
+  color: #000000; }
 
 .signin, .signup, #form-submit {
   padding: 9px 8px; }
+
+#form-submit {
+  background-color: #ef426c;
+  color: #ffffff; }
 
 .email-error, .password-error, .firstname-error, .lastname-error {
   display: none;
