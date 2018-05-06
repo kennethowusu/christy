@@ -10,10 +10,11 @@ head
   link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet')
   link(rel='stylesheet',href='stylesheets/style.css')
   script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js")
   script(src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js')
 
 
-
+  
 body
   header.main-header.d-flex.align-items-center
     section.home-menu-cont.d-flex.justify-center.align-items-center 
@@ -34,35 +35,35 @@ body
     button.basket.transparent.no-border(type='button')
       img#basket-img(src="/images/basket.svg")
     
-    div#nav-overlay.abs
-      section.nav-container
-        nav 
-          section.controller.rel.d-flex.justify-center.align-items-center
-            a.mr-auto(href="/")
-             img#logo-2(src="/images/logo.svg")
-            button.close.transparent.no-border
-             img#close(src="/images/close.svg")
-          
-          section.account
-            ul.account-list
-             li
-               a(href="#") #[img#signin(src='/images/signin.svg')] #[span Sign In]
-             li
-               a(href="#") #[img#track-order(src='/images/reorder.svg')] #[span Track Order]
-             li
-               a(href="#") #[img#add-user(src='/images/add-user.svg')] #[span Create Account]
-             li
-                a(href="#") #[img#help(src='/images/help.svg')] #[span Help] 
-                
-          section.account
-            ul.account-list
-              li
-                a(href="#") Makeup
-              li
-                a(href="#") Bath & Body
-              li
-                a(href="#") Men
+  include partials/nav.pug
+  section.d-flex.banner-cont
+      a.d-flex.flex-col.banner(href='#')
+        img.banner-img.control(src="/images/banner1.jpg")
+        div.text-center.sec-banner.bg-violet
+          p.text-white.sec-head The New Covergirl 
+          P.text-white.sec-body Give you beauty routine a spring revamp with new 
+                                 |formulas that will be your seasonal sidekicks           
+          div.right-pointer
+            img.right-pointer-img(src="/images/pointer-white.svg")
             
+            
+      a.d-flex.flex-col.banner(href='#')
+        img.banner-img.control(src="/images/banner2.jpg")
+        div.text-center.sec-banner.bg-violet
+          p.text-white.sec-head The New Covergirl 
+          P.text-white.sec-body Give you beauty routine a spring revamp with new 
+                                       |formulas that will be your seasonal sidekicks           
+          div.right-pointer
+            img.right-pointer-img(src="/images/pointer-white.svg")
+            
+      a.d-flex.flex-col.banner(href='#')
+        img.banner-img.control(src="/images/banner3.jpg")
+        div.text-center.sec-banner.bg-violet
+          p.text-white.sec-head The New Covergirl 
+          P.text-white.sec-body Give you beauty routine a spring revamp with new 
+                                             |formulas that will be your seasonal sidekicks           
+          div.right-pointer
+            img.right-pointer-img(src="/images/pointer-white.svg")
   block content
   
   script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js")

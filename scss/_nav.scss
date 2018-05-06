@@ -1,4 +1,21 @@
+ #sticky-wrapper.sticky-wrapper{
+   z-index:8 !important;
+ }
+ .main-header {
+   z-index:10 !important;
 
+ & *{
+     z-index:10 !important;
+  }
+
+}
+//
+// .banner-cont,.banner-cont *{
+//   z-index: 2 !important;
+// }
+.is-sticky{
+  background-color:$navcolor;
+}
 .home-menu-cont{
   background-color:$navcolor;
   width:102px;
@@ -75,11 +92,12 @@
   width:0;
   height:100%;
   background-color:rgba(0, 0, 0, 0.3);
+  z-index:10;
 }
 .nav-container{
   width:100%;
   height:100%;
-  overflow-y:auto;
+  overflow-y:scroll;
   top:0;
   left:0;
   background-color:#ffffff;
@@ -105,6 +123,7 @@
     transform:translateX(-320px);
   }
 }
+
 
 .account-list{
   padding:20px;

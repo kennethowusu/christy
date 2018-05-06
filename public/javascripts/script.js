@@ -33,3 +33,13 @@ $('#menu-img,.menu').on('click',function(){
 })
 
 $('#close,.close').on('click',hideNav);
+
+//================
+//STICKY NAV
+//===============
+ $(".main-header").sticky({topSpacing:0});
+$('.banner-cont').slick({
+    autoplay: true,
+    autoplaySpeed: 3000,
+    dots:true
+})
