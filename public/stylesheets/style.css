@@ -342,43 +342,34 @@ a:hover {
 .banner-cont {
   margin-top: 30px; }
 
-.container {
-  text-align: center;
-  background-color: #ffffff; }
-  @media (min-width: 1005px) {
-    .container {
-      margin-left: 260px; } }
+.primary-column {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 15;
+  top: 0;
+  left: 0; }
 
-.products-section {
-  background-color: whitesmoke;
-  padding-bottom: 30px; }
-
-.item {
-  width: 168px !important;
-  height: 301;
-  overflow: hidden;
-  box-shadow: 0 0 3px #898383;
-  text-align: center;
+.head-toggler {
+  padding-top: 20px;
   padding-bottom: 20px;
-  margin-right: 15px; }
-  .item a {
-    display: block; }
-  .item .item-pic {
-    width: 100%; }
-
-.item-details {
-  text-align: center; }
-  .item-details .item-price {
-    color: #ef426c; }
-
-.i-title {
-  font-size: 14px;
   font-weight: 300;
-  color: #000; }
+  color: #000;
+  display: block;
+  font-size: 1.2em;
+  background: url("../images/plus.svg") no-repeat center right; }
 
-.i-name {
-  font-weight: 400;
-  margin-bottom: 20px; }
+.filter-section {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #e2d7d7; }
+
+.content-toggle {
+  border-top: 1px solid #e2d7d7; }
+  .content-toggle .depment-single-level a {
+    color: #e424b9;
+    font-weight: 100;
+    font-size: .9em; }
 
 .login-header {
   margin-top: 40px;

@@ -1,0 +1,40 @@
+extends layout
+block content 
+  .products-main-container
+    
+
+
+    section.primary-column
+      section.filter-section
+       a.dpment-head.head-toggler Departments
+       ul.content-toggle#dpt-toggle
+        li.depment-single-level #[a(href="#") Face]
+        li.depment-single-level #[a(href="#") Eye]
+        li.depment-single-level #[a(href="#") Lips]
+        li.depment-single-level #[a(href="#") Makeup Brushes & Tools]
+      section.filter-section
+        a.dpment-head.head-toggler Type
+        div.content-toggle#type-toggle
+          div 
+            input(type="checkbox",id="foundation")
+            label(for="foundation") Foundation
+              
+          div 
+            input(type="checkbox",id="foundation")
+            label(for="foundation") Foundation
+                      
+          div 
+            input(type="checkbox",id="foundation")
+            label(for="foundation") Foundation
+                    
+          div 
+            input(type="checkbox",id="foundation")
+            label(for="foundation") Foundation
+                              
+          div 
+            input(type="checkbox",id="foundation")
+            label(for="foundation") Foundation
+          
+  
+    
+    section.secondary-column
