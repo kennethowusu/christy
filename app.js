@@ -4,9 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+
+//require routes
 var index = require('./routes/index');
 var users = require('./routes/users');
 var account = require('./routes/account');
@@ -27,6 +30,7 @@ db.on('error', console.error.bind(console,'connection error'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -34,6 +38,9 @@ app.use(session({
   secret: 'glammy-session',
   resave: true,
   saveUninitialized: false,
+  cookie:{
+    maxAge:31556952000
+  },
   store : new MongoStore({
     mongooseConnection: db
   })

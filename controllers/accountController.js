@@ -1,4 +1,4 @@
-
+var bcrypt = require('bcryptjs');
 
 
 //require models
@@ -10,19 +10,31 @@ module.exports.getLoginForm = function(req,res,next){
 
 
 module.exports.getSignupForm = function(req,res,next){
-  res.render('signup');
+  return res.render('signup');
 }
 
- module.exports.postLogin  = function(req,res,next){
-   User.authenticate(req.body.email,req.body.password,function(err,user){
-     if(err || !user){
-       return next(err);
-     }else{
-       req.session.userId = user._id;
-       return res.redirect('/profile');
-     }
+module.exports.postLogin  = function(req,res,next){
+
+ //authenticate input against database documents
+
+   User.findOne({email:req.body.email})
+   .exec(function(err,user){
+     if(err){ next(err)
+    }else if(!user){
+        return res.render('signin',{user:{'email':req.body.email,'password':req.body.password},email_Error:"Email does not exist."});
+    }
+    bcrypt.compare(req.body.password,user.password,function(error,result){
+      if(result === false){
+          return res.render('signin',{user:{'email':req.body.email,'password':req.body.password},email_Error:"Password is incorrect"});
+      }else{
+        req.session.userId = user._id;
+        return res.redirect('/profile');
+      }
+    })
    })
- }
+
+
+}
 
 module.exports.postForm = function(req,res,next){
   var userData = new User({
@@ -31,12 +43,21 @@ module.exports.postForm = function(req,res,next){
     email: req.body.email,
     password : req.body.password
   });
-  userData.save(function(error,user){
-    if(error){
-     console.log(error)
-   }else{
-     res.redirect('/profile');
-   }
+
+  User.findOne({email:req.body.email},function(err,user){
+    if(err){next(err)}
+      else if(user){
+      return res.render('signup',{email_Error:"Email already exist!",user:userData});
+    }else{
+      userData.save(function(error,user){
+        if(error){
+         console.log(error)
+       }else{
+         req.session.userId = user._id;
+         res.redirect('/profile');
+       }
+      })
+    }
   })
 }
 
