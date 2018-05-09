@@ -56,3 +56,15 @@ $('.head-toggler').on('click',function(e){
   target.toggleClass('add-minimize');
 
 })
+
+
+//==========
+//SORT AND FILTER//
+//===========
+$('#sort-filter').on('click',function(){
+  $('.primary-column').show();
+})
+
+$('#done').on('click',function(){
+  $('.primary-column').hide();
+})

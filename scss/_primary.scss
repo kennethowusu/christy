@@ -1,4 +1,5 @@
 .primary-column{
+  display:none;
   position:absolute;
   width:100%;
   height:100%;
@@ -6,6 +7,14 @@
   z-index:15;
   top:0;
   left:0;
+
+
+  @media(min-width:$mobile-break){
+    display:block;
+    position:static;
+    width:300px;
+    height:100%;
+  }
 }
 
 .head-toggler{
@@ -24,6 +33,9 @@
   padding-left:20px;
   padding-right:20px;
   border-bottom:1px solid $dptbordercolor;
+  @media(min-width:$mobile-break){
+    border:none;
+  }
 }
 
 .content-toggle{
@@ -36,6 +48,10 @@
           font-weight:100;
           font-size:.9em;
         }
+      }
+
+      @media(min-width:$mobile-break){
+        display:block;
       }
 }
 
@@ -68,6 +84,9 @@
 .buttons{
   padding:10px;
   border-bottom:1px solid $dptbordercolor;
+  @media(min-width:$mobile-break){
+    display:none;
+  }
 }
 .add-minimize{
   background: url('../images/minimize.svg') no-repeat center right;

@@ -1,0 +1,12 @@
+.products-main-container{
+  @media(min-width:$mobile-break){
+    display:flex;
+  }
+}
+
+.secondary-column{
+  @media(min-width:$mobile-break){
+    width:100%;
+    border-left:1px solid $dptbordercolor;
+  }
+}

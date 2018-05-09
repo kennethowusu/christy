@@ -7,7 +7,7 @@ block content
     section.primary-column
       section.buttons.d-flex
        button.signin.control.blk.text-center.text-center.transparent.border-1.bold.mr-15(type="button") Reset 
-       button.signin.control.blk.text-center.text-center.transparent.no-border.bold.text-white.bg-nav(type='button') Done
+       button.signin.control.blk.text-center.text-center.transparent.no-border.bold.text-white.bg-nav#done(type='button') Done
       section.filter-section
        a.dpment-head.head-toggler#dpt-toggle Departments
        ul.content-toggle#dpt-toggle
@@ -52,3 +52,68 @@ block content
   
     
     section.secondary-column
+      
+      section.filter-search.d-flex 
+        span.mr-auto 12 products
+        div.d-flex.justify-center.align-items-center
+          button.no-border.transparent
+           img(src="/images/list.svg")
+          button.no-border.transparent
+           img(src="/images/grid.svg")
+          button.no-border.transparent#sort-filter
+            |Sort & filter
+    
+      ul.bread-crumb-link
+        li #[a(href="#") Makeup]
+        li #[a(href="#") Face]
+        li #[h1.page-head Face Makeup] 
+        
+        
+      ul.grid-view-cont.d-flex
+        li.item-grid-view
+          .grid-seperator
+            div.grid-img-cont
+              img.grid-img(src="/images/product1.jpg")
+            div.grid-colors
+            
+            h3.grid-title
+              Coty Airspot Translusenet Extra
+              Cover ...
+            
+            p.grid-price &#8373;5.97
+            
+          
+        li.item-grid-view
+          .grid-seperator
+            div.grid-img-cont
+              img.grid-img(src="/images/product2.jpg")
+            div.grid-colors
+              
+            h3.grid-title
+              Coty Airspot Translusenet Extra
+              Cover ...
+            
+            p.grid-price &#8373;5.97
+            
+        li.item-grid-view
+          .grid-seperator
+            div.grid-img-cont
+              img.grid-img(src="/images/product2.jpg")
+            div.grid-colors
+                    
+            h3.grid-title
+              Coty Airspot Translusenet Extra
+              Cover ...
+            p.grid-price &#8373;5.97
+            
+            
+        li.item-grid-view
+          .grid-seperator
+            div.grid-img-cont
+              img.grid-img(src="/images/product2.jpg")
+            div.grid-colors
+                        
+            h3.grid-title
+              Coty Airspot Translusenet Extra
+              Cover ...
+            p.grid-price &#8373;5.97
