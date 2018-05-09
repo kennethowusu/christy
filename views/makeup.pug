@@ -5,35 +5,49 @@ block content
 
 
     section.primary-column
+      section.buttons.d-flex
+       button.signin.control.blk.text-center.text-center.transparent.border-1.bold.mr-15(type="button") Reset 
+       button.signin.control.blk.text-center.text-center.transparent.no-border.bold.text-white.bg-nav(type='button') Done
       section.filter-section
-       a.dpment-head.head-toggler Departments
+       a.dpment-head.head-toggler#dpt-toggle Departments
        ul.content-toggle#dpt-toggle
         li.depment-single-level #[a(href="#") Face]
         li.depment-single-level #[a(href="#") Eye]
         li.depment-single-level #[a(href="#") Lips]
         li.depment-single-level #[a(href="#") Makeup Brushes & Tools]
+      
       section.filter-section
-        a.dpment-head.head-toggler Type
+        a.dpment-head.head-toggler#type-toggle Type
         div.content-toggle#type-toggle
-          div 
-            input(type="checkbox",id="foundation")
-            label(for="foundation") Foundation
+          div.chkbox-area
+            input.filter(type="checkbox",id="foundation")
+            label(for="foundation") 
+              span.check
+              |Foundation
               
-          div 
-            input(type="checkbox",id="foundation")
-            label(for="foundation") Foundation
+          div.chkbox-area
+            input.filter(type="checkbox",id="something1")
+            label(for="something1")
+             span.check
+             |Foundation
                       
-          div 
-            input(type="checkbox",id="foundation")
-            label(for="foundation") Foundation
+          div.chkbox-area
+            input.filter(type="checkbox",id="something2")
+            label(for="something2") 
+              span.check
+              |Foundation
                     
-          div 
-            input(type="checkbox",id="foundation")
-            label(for="foundation") Foundation
+          div.chkbox-area
+            input.filter(type="checkbox",id="something3")
+            label(for="something3")
+              span.check
+              |Foundation
                               
-          div 
-            input(type="checkbox",id="foundation")
-            label(for="foundation") Foundation
+          div.chkbox-area
+            input.filter(type="checkbox",id="something4")
+            label(for="something4")
+              span.check
+              |Foundation
           
   
     

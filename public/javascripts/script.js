@@ -43,3 +43,16 @@ $('.banner-cont').slick({
     autoplaySpeed: 3000,
     dots:true
 })
+
+
+//========================
+//PRIMARY COLUMN
+//========================
+
+$('.head-toggler').on('click',function(e){
+  var target  = $(e.target);
+
+  $('.content-toggle#'+target.attr('id')).toggle();
+  target.toggleClass('add-minimize');
+
+})

@@ -128,6 +128,10 @@ text-align:left;
   color:red;
 }
 
+//background-colors
+.bg-nav{
+  background-color:$lightred !important;
+}
 //border-colors
 .border-danger{
   border-color:red !important;
@@ -135,7 +139,9 @@ text-align:left;
 .border-white{
   border-color:#fff !important;
 }
-
+.border-1{
+  border:1px solid #000;
+}
 
 //========================FONT WEIGHTS=========================//
 .bold{

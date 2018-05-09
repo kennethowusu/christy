@@ -130,11 +130,17 @@ a:hover {
 .text-danger {
   color: red; }
 
+.bg-nav {
+  background-color: #ef426c !important; }
+
 .border-danger {
   border-color: red !important; }
 
 .border-white {
   border-color: #fff !important; }
+
+.border-1 {
+  border: 1px solid #000; }
 
 .bold {
   font-weight: bold; }
@@ -342,35 +348,6 @@ a:hover {
 .banner-cont {
   margin-top: 30px; }
 
-.primary-column {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  z-index: 15;
-  top: 0;
-  left: 0; }
-
-.head-toggler {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-weight: 300;
-  color: #000;
-  display: block;
-  font-size: 1.2em;
-  background: url("../images/plus.svg") no-repeat center right; }
-
-.filter-section {
-  padding-left: 20px;
-  padding-right: 20px;
-  border-bottom: 1px solid #e2d7d7; }
-
-.content-toggle {
-  border-top: 1px solid #e2d7d7; }
-  .content-toggle .depment-single-level a {
-    color: #e424b9;
-    font-weight: 100;
-    font-size: .9em; }
-
 .login-header {
   margin-top: 40px;
   font-weight: 400; }
@@ -436,5 +413,63 @@ img.error {
     z-index: 6;
     padding-left: 12px;
     padding-right: 12px; }
+
+.primary-column {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 15;
+  top: 0;
+  left: 0; }
+
+.head-toggler {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: 300;
+  color: #000;
+  display: block;
+  font-size: 1.2em;
+  background: url("../images/plus.svg") no-repeat center right; }
+
+.filter-section {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #e2d7d7; }
+
+.content-toggle {
+  display: none;
+  border-top: 1px solid #e2d7d7; }
+  .content-toggle .depment-single-level a {
+    color: #e424b9;
+    font-weight: 100;
+    font-size: .9em; }
+
+.chkbox-area {
+  display: flex;
+  align-items: baseline; }
+  .chkbox-area span.check {
+    display: inline-block;
+    border: 1px solid #000;
+    height: 12px;
+    width: 12px;
+    border-color: #9d9fa2;
+    vertical-align: middle;
+    border-radius: 3px;
+    margin-right: 5px; }
+  .chkbox-area label {
+    font-size: 14px; }
+
+.filter {
+  display: none; }
+  .filter:checked + label span.check {
+    background: url("../images/check.svg") no-repeat center; }
+
+.buttons {
+  padding: 10px;
+  border-bottom: 1px solid #e2d7d7; }
+
+.add-minimize {
+  background: url("../images/minimize.svg") no-repeat center right; }
 
 /*# sourceMappingURL=style.css.map */
