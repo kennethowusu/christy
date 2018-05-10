@@ -9,32 +9,35 @@ head
   link(rel='stylesheet',href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap-reboot.min.css")
   link(href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet')
   link(rel='stylesheet',href='stylesheets/style.css')
+  link(rel='stylesheet',href='stylesheets/xzoom.css')
   script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
   script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js")
   script(src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js')
+  script(src="/javascripts/xzoom.min.js")
 
 
   
 body
-  header.main-header.d-flex.align-items-center
-    section.home-menu-cont.d-flex.justify-center.align-items-center 
-      a.logo.mr-auto(href="/") 
-        img#logo-img(src="/images/logo.svg")
+  .main-header-cont
+    header.main-header.d-flex.align-items-center
+      section.home-menu-cont.d-flex.justify-center.align-items-center 
+        a.logo.mr-auto(href="/") 
+          img#logo-img(src="/images/logo.svg")
+        
+        button.menu.transparent.no-border(type='button')
+          img#menu-img(src="/images/menu.svg")
+         
+      form.rel.ml-auto#form-search(method='get',action='/search')
+        input#search-field(type='text',placeholder="Search")
+        button.search.transparent.no-border.abs
+          img#search-img(src='/images/search.svg')
       
-      button.menu.transparent.no-border(type='button')
-        img#menu-img(src="/images/menu.svg")
-       
-    form.rel.ml-auto#form-search(method='get',action='/search')
-      input#search-field(type='text',placeholder="Search")
-      button.search.transparent.no-border.abs
-        img#search-img(src='/images/search.svg')
-    
-    button.wishlist.transparent.no-border(type='button')
-      img#wishlist-img(src='/images/wishlist.svg')
+      button.wishlist.transparent.no-border(type='button')
+        img#wishlist-img(src='/images/wishlist.svg')
+        
+      button.basket.transparent.no-border(type='button')
+        img#basket-img(src="/images/basket.svg")
       
-    button.basket.transparent.no-border(type='button')
-      img#basket-img(src="/images/basket.svg")
-    
   include partials/nav.pug
   
   block content

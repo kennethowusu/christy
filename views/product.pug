@@ -1,0 +1,90 @@
+extends layout
+block content
+  .product-page-container
+    //img.xzoom(src='path/to/preview_image_01.jpg', xoriginal='path/to/original_image_01.jpg')
+    section.zoom-container
+      img.xzoom(src='/images/product1.jpg')
+      .xzoom-thumbs
+       a(href='/images/product1.jpg')
+         img.xzoom-gallery(src='/images/prouct1.jpg', xpreview='/images/product1.jpg')
+       a(href='/images/product2.jpg')
+         img.xzoom-gallery( src='/images/product2.jpg')
+       a(href='/images/product3.jpg')
+         img.xzoom-gallery( src='/images/product3.jpg')
+    
+    
+    section.product-details
+      h1.product-title Relvon ColorStay Pressed Powder Light/Medium
+
+      span.mr-15.bold.color Color:
+      span Always Almond
+      section.swatch-container
+            
+        div.swatch-img-cont
+          a(href="#")
+            img(src="/images/product1.jpg")
+        div.swatch-img-cont
+          a(href="#")
+            img(src="/images/product2.jpg")
+        
+      p.product-price &#8373;5.94
+      
+      div.call-to-action
+        select#quant-select
+          option(value='1') 1
+          option(value='2') 2
+          option(value='3') 3
+          option(value='3') 3
+          option(value='4') 4
+          option(value='5') 5
+          option(value='6') 6
+          option(value='7') 7
+          option(value='8') 8
+          option(value='9') 9
+          option(value='10') 10
+          option(value='11') 11
+          option(value='12') 12
+      
+        button.signin.control.in-blk.text-center.transparent.no-border.bold.text-white.bg-nav#to-basket(type='submit',style="width:129px") Add to Basket
+      div.favourite
+         button.no-border.fav.transparent
+           img#heart(src="/images/heart.svg")
+           span Add to favourite 
+    
+    section.description
+      span.about About This Item
+      section.desc 
+        p
+          |Safely clean hard-to-reach ar
+          |eas with Johnson's Safety Swabs. 
+          |Clinically proven safer for children 
+          |than traditional swabs, Johnson's Safety 
+          |Swabs gently clean and dry baby and grown-up
+          |ears.The swabs are made of 100 percent pure, nonchlorine-bleached cotton. They are designed with the Ear Safe Bulb shape to make cleaning the delicat
+          |e area around your babys ears safer and 
+          |easier.
+        
+        p
+          li Safely clean hard-to-reach areas
+          li Ear Safe Bulb shape specially shaped for cleaning ears
+          li Great for applying ointment and makeup
+          li 100% pure, nonchlorine-bleached cotton
+          li Clinically proven to be safer for children
+          li 185 swabs
+      section.ingredient
+        span.bold Ingredients
+        p Ingredients:
+          |Talc, Avena Sativa (Oat) Kernel Flour, Calcium Silicate, Zinc Stearate,
+          |Fragrance/Parfum, Dimethicone, Eucalyptus Globulus Leaf Oil, Sodium Dehydroacetate
+          | , Camphor, Mineral Oil/Huile Minerale, Menthol, Isopropyl Myristate, Propylparaben, Eugenia
+          | Caryophyllus (Clove) Flower Oil, Methylparaben, Quaternium 15, BHT, Mica, Iron Oxides
+          |, May Contain: Ultra Marines
+      section.direction
+        span.bold Directions
+        p Direction:
+            li Safely clean hard-to-reach areas
+            li Ear Safe Bulb shape specially shaped for cleaning ears
+            li Great for applying ointment and makeup
+            li 100% pure, nonchlorine-bleached cotton
+            li Clinically proven to be safer for children
+            li 185 swab

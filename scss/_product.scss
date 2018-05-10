@@ -1,0 +1,142 @@
+
+.zoom-container{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap:wrap;
+  padding:10px;
+  padding-left:15px;
+  @media(min-width:735px){
+    flex:1 50%;
+  }
+}
+.xzoom{
+  display: inline-block;
+  width:304px;
+  height:304px;
+
+  @media(min-width:1053px){
+    width:438px;
+    height:438px;
+  }
+}
+.xzoom-thumbs{
+  display:none;
+
+  & a{
+    display:inline-block;
+    width:50px;
+  }
+
+  & .xzoom-gallery{
+    width:100%;
+  }
+  @media(min-width:735px){
+    display:block;
+  }
+}
+
+.product-title{
+  font-weight:300;
+  font-size:18px;
+}
+
+.product-price{
+  font-size:1.5em;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+select{
+  min-width: 71px;
+  height: 46px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 2px solid #9d9fa2;
+  border-radius: 0;
+  padding-left: 24px;
+  padding-right: 24px;
+  text-align-last: center;
+  background: none;
+  outline: none;
+  -webkit-appearance: none;
+  background:url("../images/down-arrow.svg") no-repeat center right;
+}
+
+.call-to-action{
+  display:flex;
+  align-items:baseline;
+  justify-content: center;
+  padding-bottom:25px;
+
+  #quant-select{
+    margin-right:40px;
+  }
+}
+button.fav{
+
+  #heart{
+    margin-right:5px;
+  }
+  span{
+    text-decoration:underline;
+  }
+}
+
+div.favourite{
+  border-top: 1px solid $dptbordercolor;
+  border-bottom:1px solid $dptbordercolor;
+  padding:15px;
+}
+.product-page-container{
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+
+  @media(min-width:735px){
+    flex-direction:row;
+  }
+}
+.swatch-container{
+  display:flex;
+  align-items: center;
+  padding-top:15px;
+  padding-bottom:15px;
+
+}
+
+.product-details{
+  padding-left:15px;
+  @media(min-width:735px){
+    flex:1 50%;
+  }
+}
+.swatch-img-cont{
+  width:50px;
+  border:1px solid $dptbordercolor;
+  margin-right:5px;
+  overflow:hidden;
+
+  & img{
+    width:100%;
+  }
+}
+
+.suggest-head{
+  font-size:1.5em;
+}
+//styling description
+.about{
+  font-size:1.5em;
+}
+.description{
+  max-width:1000px;
+  padding:15px;
+  li{
+    list-style-type:disc;
+    margin-left:1em;
+    list-style-position: outside;
+  }
+}

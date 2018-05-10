@@ -45,6 +45,30 @@ $('.banner-cont').slick({
 })
 
 
+//for suggest
+$('.content-suggest').slick({
+  slidesToShow:2,
+  arrows:true,
+  dots:true,
+
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 700,
+      settings: "unslick"
+    }
+
+  ]
+});
+
+//for xzoom
+$(".xzoom, .xzoom-gallery").xzoom({});
+
 //========================
 //PRIMARY COLUMN
 //========================

@@ -1,0 +1,43 @@
+
+section.suggest
+  span.suggest-head Customers Also Considered
+
+
+  ul.grid-view-cont.d-flex.content-suggest
+    li.item-grid-view
+      .grid-seperator
+        a(href="#").in-blk.grid-img-cont
+          img.grid-img(src="/images/product1.jpg")
+        div.grid-colors
+
+        a(href="#")
+          h3.grid-title
+            Coty Airspot Translusenet Extra
+            Cover ...
+
+        p.grid-price &#8373;5.97
+
+
+    li.item-grid-view
+      .grid-seperator
+        div.grid-img-cont
+          img.grid-img(src="/images/product2.jpg")
+        div.grid-colors
+
+        h3.grid-title
+          Coty Airspot Translusenet Extra
+          Cover ...
+
+        p.grid-price &#8373;5.97
+
+    li.item-grid-view
+      .grid-seperator
+        div.grid-img-cont
+          img.grid-img(src="/images/product2.jpg")
+        div.grid-colors
+
+        h3.grid-title
+          Coty Airspot Translusenet Extra
+          Cover ...
+        p.grid-price &#8373;5.97
+        
