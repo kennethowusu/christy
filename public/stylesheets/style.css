@@ -531,9 +531,11 @@ img.error {
   z-index: 15;
   top: 0;
   left: 0;
-  z-index: -99; }
+  z-index: 3;
+  margin-top: 33px; }
   @media (min-width: 800px) {
     .primary-column {
+      margin-top: 0;
       display: block;
       position: static;
       width: 300px;
