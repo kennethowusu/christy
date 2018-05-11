@@ -1,0 +1,44 @@
+extends layout
+block content
+  .basket-modal
+    section.basket-cont
+      .basket-control.d-flex.bg-white.control
+        span.hide-basket
+        a.border-1.signin.bg-white.text-center.mr-15(href="#")  View Basket 
+        a.signin.bg-white.signin.bg-nav.bold.text-white(href="#").text-center  Check Out
+      
+      .basket-section.d-flex.flex-wrap.flex-col
+        .basket-primary
+          span.blk.basket.head.em-15.mt-15.mb-15
+            |You just added 1 item(
+            a.text-dark.underline(href="#") 3 items in total)
+          
+          .basket-item.d-flex.flex-wrap.flex-col
+            a.text-dark.basket-item-head(href="#") Minali Concel + Perfect 2-in-1 Foundation + Concealer 
+            span.in-blk.text-grey Color : Brown
+            a.mt-15.mb-20.basket-img.in-blk(href="#")
+              img.control(src="/images/product1.jpg")
+            .d-flex
+              span.bold.basket-price &#8373;8.97
+              span.basket-qty Qty 1
+        .basket-secondary.rel
+          button.no-border.transparent.abs#modal-close
+            img(src="/images/modal-close.svg")
+          div.est-cont
+            
+            .d-flex.pt-20
+              span.mr-auto Subtotal(3 items)
+              span &#8373;26.91
+            
+            .d-flex.basket-seperator.pb-20
+              span.mr-auto Shipping
+              span &#8373;2.35
+            div.total-cont.d-flex
+              span.mr-auto.total Est. total 
+              span.total.bold &#8373;35.25
+            
+            div
+              a.blk.signin.border-1.bold.text-dark.text-center(href="#") View Cart
+              a.blk.signin.bold.text-white.text-center.bg-nav.no-border(href="#") View Cart
+
+                

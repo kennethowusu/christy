@@ -18,6 +18,12 @@ router.get('/bath-and-body',function(req,res,next){
   res.render('bath-and-body',{title:"Makeup Stuffs"});
 })
 
+
+/*GET makeup*/
+
+router.get('/modaltest',function(req,res,next){
+  res.render('modal',{title:"Makeup Stuffs"});
+})
 /*GET makeup*/
 
 router.get('/men',function(req,res,next){
@@ -27,5 +33,7 @@ router.get('/men',function(req,res,next){
 router.get('/:product',function(req,res,next){
   res.render('product',{item:req.params.product})
 })
+
+
 
 module.exports = router;
