@@ -106,3 +106,48 @@ span.total{
     display:inline-block;
   }
 }
+
+
+
+//for basket page
+.basket-item__image{
+  width:70px;
+  height:70px;
+}
+.basket-p__total-cont{
+  margin-top:30px;
+  padding:20px;
+  border-left:1px solid $dptbordercolor;
+  border-top:1px solid $dptbordercolor;
+  border-bottom:1px solid $dptbordercolor;
+
+}
+.total-top{
+
+        @media(min-width:792px){
+        display:none;
+      }
+
+.total-bottom{
+
+  @media(min-width:792px){
+    width:300px;
+    }
+}
+}
+.basket-p__cont{
+
+    @media(min-width:792px){
+    display:flex;
+    }
+}
+
+.basket-item{
+      &>div{
+        @media(min-width:792px){
+        display:flex;
+        flex:1 33.333%;
+      }
+
+      }
+}

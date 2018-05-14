@@ -30,9 +30,18 @@ router.get('/men',function(req,res,next){
   res.render('men',{title:"Makeup Stuffs"});
 })
 
+
+router.get('/basket',function(req,res,next){
+  res.render('basket',{item:req.params.product})
+})
+
 router.get('/:product',function(req,res,next){
   res.render('product',{item:req.params.product})
 })
+
+
+
+
 
 
 
