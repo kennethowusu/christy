@@ -1,0 +1,55 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  link(rel='stylesheet',href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap-reboot.min.css")
+  link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
+  link(href="/stylesheets/upload.css" rel="stylesheet")
+  script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
+
+  
+ 
+body 
+  
+  .upload-container
+    form.upload(method="post",action="",id="myform",enctype="multipart/form-data")
+      .field
+        label Product Name
+        input.control(type="text",placeholder="Product Name",name="firstname",id="firstname")
+      .field
+        label Product Price
+        select.control 
+         option(value='makeup') Makeup
+         option(value='bath-and-body') Bath & body 
+         option(value='men') Men
+              
+      .field
+        label Product Main Category
+        select.control 
+         option(value='makeup') Makeup
+         option(value='bath-and-body') Bath & body 
+         option(value='men') Men
+                            
+      .field
+        label Product Sub Category
+        select.control 
+         option(value='makeup') Makeup
+         option(value='bath-and-body') Bath & body 
+         option(value='men') Men
+                      
+      .field
+        label(for="description") Description
+        textarea#description(name="description") Enter Description of this product
+      h1 Photos
+      label.none.browse-cont.d-flex.justify-center.align-items-center(for="image")
+        input.none(type="file",id="image",name="image",multiple)
+        .browse-img
+          img(src="/images/upload.svg")
+      div 
+        input(type="submit",id="button")
+  
+  
+  
+
+script(src="/javascripts/upload.js")

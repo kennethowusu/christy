@@ -13,6 +13,7 @@ var MongoStore = require('connect-mongo')(session);
 var index = require('./routes/index');
 var users = require('./routes/users');
 var account = require('./routes/account');
+var upload = require('./routes/upload');
 var app = express();
 
 // view engine setup
@@ -56,6 +57,7 @@ app.use(function(req,res,next){
 app.use('/', index);
 app.use('/users', users);
 app.use('/account',account);
+app.use('/upload',upload);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
