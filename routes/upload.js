@@ -5,17 +5,6 @@ var multer = require('multer');
 var multerS3 = require('multer-s3');
 
 
-router.get('/somethingtoupload', function(req, res, next) {
-  res.render("upload");
-
-});
-
- //
- // var params = {
- //   Bucket:'glammycare',
- //   Key:req.body.file
- // }
-
 var s3 = new aws.S3({
   apiVersion:'2006-03-01',
   endpoint:'https://s3.eu-west-2.amazonaws.com/',
@@ -23,6 +12,7 @@ var s3 = new aws.S3({
   secretAccessKey:process.env.s3_secret_access_key,
   region:'eu-west-2'
 });
+
 
 var upload = multer({
  storage: multerS3({
@@ -35,10 +25,23 @@ var upload = multer({
      cb(null, req.query.filename);
    }
  })
-})
+}).single('image');
 
-router.post('/somethingtoupload',upload.single('image'),function(req,res,next){
-  res.send(req.file);
+router.get('/somethingtoupload', function(req, res, next) {
+  res.render("upload");
+
+});
+router.post('/somethingtoupload',function(req,res,next){
+   upload(req,res,function(err){
+     if(err){
+       res.send(err);
+     }else{
+       res.send(req.file);
+     }
+
+
+   })
+
 
 
 });
