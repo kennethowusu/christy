@@ -27,6 +27,12 @@ var ProductSchema = new Schema({
   },
   color:{
     type:String
+  },
+  product_status:{
+    type:String,
+    enum:['on','off'],
+    required:true,
+    default:'off'
   }
 
 });

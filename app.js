@@ -9,6 +9,8 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
+
+
 require('dotenv').config();
 //require routes
 var index = require('./routes/index');
@@ -35,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(expressValidator());
 app.use(session({
   secret: 'glammy-session',
   resave: true,

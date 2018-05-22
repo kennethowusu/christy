@@ -70,21 +70,17 @@ button[type=submit], button[type=button] {
 form {
   padding: 20px; }
 
-.upload-modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; }
-  @media (min-width: 760px) {
-    .upload-modal {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding-top: 45px; } }
+.error {
+  color: red; }
+
+.error-cont {
+  margin: auto; }
 
 form.upload.new {
-  background-color: #ffffff;
   height: 100%; }
   @media (min-width: 760px) {
     form.upload.new {
+      box-shadow: 0 0 3px #948d8d;
       max-width: 600px;
       margin: auto; } }
 
@@ -140,5 +136,17 @@ form.upload.new {
   width: 15px;
   height: 15px;
   margin-right: 15px; }
+
+.saving, .saved {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  z-index: 20; }
 
 /*# sourceMappingURL=upload.css.map */

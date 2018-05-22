@@ -6,7 +6,9 @@ var Product = require('./productsModel');
 var DescriptionSchema = new Schema({
 product_id:{
    type: Schema.Types.ObjectId,
-   ref: 'Product' },
+   ref: 'Product',
+   required:true
+  },
   about:{
     type:String
   },

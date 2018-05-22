@@ -1,16 +1,23 @@
 
-var moongoose = require('mongoose');
-var Schema = mongoose.Schema();
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var Swatch = require('./swatchProductModel');
 
+var SwatchImageSchema = new Schema({
 
-var SwatchImageSchema = new Schema(){
+ swatch_id:{
+    type: Schema.Types.ObjectId,
+    ref: 'Swatch',
+    required:true
+  },
+  images:{
+    type:'String',
+    required:true
+  }
 
-product_id: [{ type: Schema.Types.ObjectId, ref: 'SwatchProduct' }],
-
-
-}
+});
 
 
 
 var SwatchImage = mongoose.model('SwatchImage',SwatchImageSchema);
-module.exports = swatImage;
+module.exports = SwatchImage;

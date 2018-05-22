@@ -1,24 +1,22 @@
 
-var moongoose = require('mongoose');
-var Schema = mongoose.Schema();
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var Product = require('./productsModel');
 
+var ImageSchema = new Schema({
 
-var ImageSchema = new Schema(){
+product_id:{
+   type: Schema.Types.ObjectId,
+    ref: 'Product',
+    required:true
+   },
 
-product_id: [{ type: Schema.Types.ObjectId, ref: 'Person' }],
-
-  about:{
-    type:String
-  },
-  ingredients:{
-    type:String
-  },
-  how_to_use:{
+  image:{
     type:String
   }
 
 
-}
+});
 
 
 
