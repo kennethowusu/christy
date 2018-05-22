@@ -1,0 +1,48 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  link(rel='stylesheet',href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap-reboot.min.css")
+  link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
+  link(href="/stylesheets/upload.css" rel="stylesheet")
+  script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
+  script(src="https://cdn.ckeditor.com/ckeditor5/10.0.0/classic/ckeditor.js")
+  
+ 
+body 
+
+  .upload-container
+    form.upload.description(method="post",action="/upload/new/description",id="myform",enctype="multipart/form-data")
+  
+      .field#about_field
+        label(for="about") Description
+        textarea#about(name="about") 
+      
+      .field#how_to_use_field
+        label(for="description") How To Use
+        textarea#how_to_use(name="description") 
+      
+      //- input(type='hidden',value=product._id ,id='product_id')
+      .field#ingredients_field
+        label(for="description") Ingredients
+        textarea#ingredients(name="ingredients")
+      h1 Photos
+      label.none.browse-cont.d-flex.justify-center.align-items-center(for="image")
+        .loader-div
+          img.loader(src="/images/loader.gif")
+        input.none(type="file",id="image",name="image",multiple)
+        .browse-img
+          img(src="/images/upload.svg")
+      
+      div.uploaded-photos
+        
+        
+      div 
+      .field 
+        button.control.blk(type="button") Activate Product
+  
+  
+  
+
+script(src="/javascripts/upload.js")

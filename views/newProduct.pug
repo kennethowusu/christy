@@ -12,44 +12,47 @@ head
  
 body 
   
-  .upload-container
-    form.upload(method="post",action="",id="myform",enctype="multipart/form-data")
+  .upload-modal
+  
+    form.upload.new(method="post",action="",id="myform")
+      .upload-head.text-center
+        |Add Product
       .field
-        label Product Name
-        input.control(type="text",placeholder="Product Name",name="firstname",id="firstname")
+        label(for="name") Product Name
+        input.control(type="text",placeholder="Product Name",name="name",id="name")
+          
       .field
-        label Product Price
-        select.control 
+        label(for="price") Price
+        input.control(type="text",placeholder="price",name="price",id="price")
+          
+      .field
+        label(for="color") Product Color
+        input.control(type="text",placeholder="Optional ",name="color",id="color")
+      
+      .field
+        label(for="main_category") Product Main Category
+        select.control(id="main_category",name="main_category")
+         option(value="") Select Main Category
          option(value='makeup') Makeup
          option(value='bath-and-body') Bath & body 
          option(value='men') Men
               
       .field
-        label Product Main Category
-        select.control 
+        label(for="category") Product Category
+        select.control(id="category",name="category")
          option(value='makeup') Makeup
          option(value='bath-and-body') Bath & body 
          option(value='men') Men
                             
       .field
-        label Product Sub Category
-        select.control 
+        label(for="subcategory") Product Subcategory
+        select.control(id="subcategory",name="subcategory") 
          option(value='makeup') Makeup
          option(value='bath-and-body') Bath & body 
          option(value='men') Men
+      .field 
+        button.control.blk(type="submit") Add product
                       
-      .field
-        label(for="description") Description
-        textarea#description(name="description") Enter Description of this product
-      h1 Photos
-      label.none.browse-cont.d-flex.justify-center.align-items-center(for="image")
-        input.none(type="file",id="image",name="image",multiple)
-        .browse-img
-          img(src="/images/upload.svg")
-      div 
-        input(type="submit",id="button")
+      
   
   
-  
-
-script(src="/javascripts/upload.js")
