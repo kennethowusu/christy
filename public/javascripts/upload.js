@@ -106,7 +106,12 @@ function uploadImage(formdata,filename){
     if(xhr.readyState == 4 && xhr.status == 200){
       $('.loader-div').hide();
       var result = JSON.parse(xhr.responseText);
-      console.log(result.location);
+      $('.uploaded-photos').append(
+
+      `<div class="image-preview"> <div class="image-preview__img"><img src="${result.location}" alt="" class="control"></div><div class="image-preview__action"><button  type="button" class="image-preview__btn"><img src="/images/delete.svg" alt="" class="image-preview__delete">Delete photo</button></div></div>`
+
+
+        );
     }
   }
   xhr.send(formdata);

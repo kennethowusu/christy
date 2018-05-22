@@ -30,6 +30,8 @@ body
       h1 Photos
       label.none.browse-cont.d-flex.justify-center.align-items-center(for="image")
         .loader-div
+          div.text-coral
+            | UPLOADING. PLEASE WAIT...
           img.loader(src="/images/loader.gif")
         input.none(type="file",id="image",name="image",multiple)
         .browse-img
@@ -37,7 +39,7 @@ body
       
       div.uploaded-photos
         
-        
+    
       div 
       .field 
         button.control.blk(type="button") Activate Product
