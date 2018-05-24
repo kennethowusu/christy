@@ -26,7 +26,7 @@ body
           label(for="description") How To Use
           textarea#how_to_use(name="description") #{product.how_to_use}
         
-        input(type='hidden',value=product.product_id,id='product_id')
+        input(type='hidden',value=product.product,id='product_id')
         .field#ingredients_field
           label(for="description") Ingredients 
           textarea#ingredients(name="ingredients")  #{product.ingredients}

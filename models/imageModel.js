@@ -5,7 +5,7 @@ var Product = require('./productsModel');
 
 var ImageSchema = new Schema({
 
-product_id:{
+ product:{
    type: Schema.Types.ObjectId,
     ref: 'Product',
     required:true

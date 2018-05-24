@@ -1,0 +1,56 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  link(rel='stylesheet',href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap-reboot.min.css")
+  link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
+  link(href="/stylesheets/upload.css" rel="stylesheet")
+  script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
+  script(src="https://cdn.ckeditor.com/ckeditor5/10.0.0/classic/ckeditor.js")
+
+  
+ 
+body 
+
+main.p-20
+ .search-list
+   form.search-form(method='get',action='')
+     input.control(type='text',placeholder='Search uploaded products')
+ 
+ .d-flex.product-notice
+   h3.mr-auto #[a.new(href="/upload/new") Add new Product]
+   p Total product listing: 
+     span.bold #{count}
+ 
+ if products 
+   for product in  products
+     .listing-title__cont
+       h2.listing__title Uploded listings    
+     .pd-listing__cont.d-flex.flex-col.flex-wrap
+        .pd-list
+          a.blk.pd-listing__img-cont(href="#")
+            img.control.pd-listing__img(src="/images/product1.jpg")
+     
+          p.pd-listing__title   Aspyn Ovard eye & cheek pallete
+          p.pd-listing__price  &#8373;45.50
+     
+        .pd-listing__action.d-flex.flex-wrap
+            li.pd-list__dropdown.mr-20 #[span Product]
+             ul.pd-dropdown
+               li #[a.edit(href="/upload/new/description?product_id="+product._id) Edit product ]
+               li #[a.trash(href="#") Delete product]
+               li #[a.view(href="#") View product]
+     
+            li.pd-list__dropdown #[span Variant]
+              ul.pd-dropdown
+                li #[a.view(href="#") View Variants]
+                li #[a.add(href="/upload/new/swatch?product_id="+product._id) Add New]
+     
+ 
+ 
+ 
+ 
+ 
+      
+script(src="/javascripts/listing.js")

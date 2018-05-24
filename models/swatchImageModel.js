@@ -5,12 +5,12 @@ var Swatch = require('./swatchProductModel');
 
 var SwatchImageSchema = new Schema({
 
- swatch_id:{
+ swatch:{
     type: Schema.Types.ObjectId,
     ref: 'Swatch',
     required:true
   },
-  images:{
+  image:{
     type:'String',
     required:true
   }

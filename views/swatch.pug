@@ -27,12 +27,12 @@ body
           input#product_id(type="hidden",value= product_id)
           input#swatch_id(type="hidden",value= swatch_id)
         h1 VARIANT Photos
-        label.none.browse-cont.d-flex.justify-center.align-items-center(for="image")
+        label.none.browse-cont.d-flex.justify-center.align-items-center(for="swatch_image")
            .loader-div
              div.text-coral
                | UPLOADING. PLEASE WAIT...
              img.loader(src="/images/loader.gif")
-           input.none(type="file",id="swatch_image",name="image",multiple)
+           input#swatch_image.none(type="file",name="image",multiple)
            .browse-img
              img(src="/images/upload.svg")    
         div.uploaded-photos
@@ -56,4 +56,4 @@ body
   
   
 
-script(src="/javascripts/upload.js")
+script(src="/javascripts/variant.js")

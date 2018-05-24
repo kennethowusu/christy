@@ -7,31 +7,33 @@ head
   link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
   link(href="/stylesheets/upload.css" rel="stylesheet")
   script(src='https://code.jquery.com/jquery-3.3.1.js', integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=', crossorigin='anonymous')
+  script(src="https://cdn.ckeditor.com/ckeditor5/10.0.0/classic/ckeditor.js")
 
   
  
 body 
   
   .upload-modal
-    if errors 
-      .error-cont
-        for error in errors 
-          li.error= error.msg
+    
     form.upload.new(method="post",action="",id="myform")
+      if errors 
+        .error-cont
+          for error in errors 
+            li.error= error.msg
       .upload-head.text-center
         |Add Product
       .field
         label(for="name") Product Name
         input.control(type="text",placeholder="Product Name",name="name",id="name",value= (product ? product.name : ''))
-          
+  
       .field
         label(for="price") Price
         input.control(type="text",placeholder="price",name="price",id="price",value= (product ? product.price : ''))
-          
+  
       .field
         label(for="color") Product Color
         input.control(type="text",placeholder="Optional ",name="color",id="color",value= (product ? product.color : ''))
-      
+  
       .field
         label(for="main_category") Product Main Category
         select.control(id="main_category",name="main_category")
@@ -39,7 +41,7 @@ body
          option(value='makeup') Makeup
          option(value='bath-and-body') Bath & body 
          option(value='men') Men
-              
+  
       .field
         label(for="category") Product Category
         select.control(id="category",name="category")
@@ -47,10 +49,10 @@ body
          option(value='makeup') Makeup
          option(value='bath-and-body') Bath & body 
          option(value='men') Men
-                            
+  
       .field
         label(for="subcategory") Product Subcategory
-         
+  
         select.control(id="subcategory",name="subcategory") 
          option(value="",selected) Select Subcategory
          option(value='makeup') Makeup
@@ -58,7 +60,10 @@ body
          option(value='men') Men
       .field 
         button.control.blk(type="submit") Add product
-                      
-      
   
+  
+  
+
+         
+  script(src="/javascripts/listing.js")
   

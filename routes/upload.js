@@ -8,14 +8,36 @@ var Description = require('../models/descriptionModel');
 var Image = require('../models/imageModel');
 var Swatch = require('../models/swatchProductModel');
 var SwatchImage = require('../models/swatchImageModel');
+var async = require('async');
 // const { check, validationResult } = require('express-validator/check');
 //get new product
-router.get('/new', function(req, res, next) {
-  res.render("newProduct");
+router.get('/uploads', function(req, res, next) {
+  // res.render("newProduct");
+  async.parallel({
+    count_products:function(callback){
+      Product.find().count().exec(callback);
+    },
+    products:function(callback){
+       Product.find().populate('description').populate('swatch').exec(callback);
+    },
+
+
+  },function(err,results){
+    if(err){return next(err);}
+    console.log(results.products);
+    res.render('uploads',{count:results.count_products,products:results.products})
+  }
+
+
+)
 
 });
 
 
+
+router.get('/new',function(req,res,next){
+  res.render('newProduct');
+})
 //create new prodcut
 router.post('/new',function(req,res,next){
 
@@ -47,7 +69,7 @@ router.post('/new',function(req,res,next){
       next(err)
     }else{
       var description  =  new Description({
-        product_id : product._id,
+        product: product._id,
         about: '',
         how_to_use : '',
         ingredients : ''
@@ -57,9 +79,36 @@ router.post('/new',function(req,res,next){
         if(err){
           next(err)
         }else{
-          res.redirect('/upload/new/description?product_id='+data._id);
+          product.description = description._id;
+          product.save(function(err,updatedProduct){
+            if(err){return next(err)};
+            res.redirect('/upload/new/description?product_id='+data._id);
+
+          })
         }
       });
+
+    }
+  })
+
+});
+
+
+
+router.get('/new/description', function(req, res, next) {
+  if(!req.query.product_id){
+    return res.send('<p>Please go back and click on the right product to continue uploading...</p>');
+  }
+
+  Description.findOne({product:req.query.product_id},function(err,product){
+    if(err){console.log(err)}else{
+
+    Image.find({product:req.query.product_id},function(err,images){
+      if(err){console.log(err)
+      }else{
+        res.render("description",{product:product,images:images});
+      }
+    })
 
     }
   })
@@ -70,7 +119,7 @@ router.post('/new',function(req,res,next){
 //=============modify description fields==================//
 //about
 router.post('/new/description/about',function(req,res,next){
-  Description.findOne({product_id:req.query.product_id},function(err,data){
+  Description.findOne({product:req.query.product_id},function(err,data){
      if(err){console.log(err)};
     data.set({about:req.body.data});
     data.save(function(err,updatedDescription){
@@ -84,7 +133,7 @@ router.post('/new/description/about',function(req,res,next){
 
 //how_to_use
 router.post('/new/description/how_to_use',function(req,res,next){
-  Description.findOne({product_id:req.query.product_id},function(err,data){
+  Description.findOne({product:req.query.product_id},function(err,data){
      if(err){console.log(err)};
     data.set({how_to_use:req.body.data});
     data.save(function(err,updatedDescription){
@@ -98,7 +147,7 @@ router.post('/new/description/how_to_use',function(req,res,next){
 
 //ingredients
 router.post('/new/description/ingredients',function(req,res,next){
-  Description.findOne({product_id:req.query.product_id},function(err,data){
+  Description.findOne({product:req.query.product_id},function(err,data){
      if(err){console.log(err)};
     data.set({ingredients:req.body.data});
     data.save(function(err,updatedDescription){
@@ -132,28 +181,7 @@ var upload = multer({
  })
 }).single('image');
 
-router.get('/new/description', function(req, res, next) {
-  if(!req.query.product_id){
-    return res.send('<p>Please go back and click on the right product to continue uploading...</p>');
-  }
 
-  Description.findOne({product_id:req.query.product_id},function(err,product){
-    if(err){console.log(err)}else{
-
-    Image.find({product_id:req.query.product_id},function(err,images){
-      if(err){console.log(err)
-      }else{
-        res.render("description",{product:product,images:images});
-      }
-    })
-
-    }
-  })
-
-
-
-
-});
 
 //UPLOAD IMAGES
 router.post('/new/description',function(req,res,next){
@@ -171,14 +199,20 @@ router.post('/new/description',function(req,res,next){
 //added uploaded image to product
 router.post('/new/description/image',function(req,res,next){
    var image = new Image({
-     product_id :req.body.product_id,
+     product:req.body.product_id,
      image : req.body.keyname
 
    });
 
-  image.save(function(err,data){
+  image.save(function(err,image){
     if(err){console.log(err)
     }else{
+      Product.findById(req.body.product_id).exec(function(err,product){
+        product.images.push(image._id);
+        product.save(function(err,returnedData){
+          if(err){return next(err)}
+        })
+      })
       res.send('image added');
     }
   })
@@ -195,12 +229,18 @@ router.get('/new/swatch',function(req,res,next){
 
   var swatch = new Swatch({
     color: '',
-    product_id:req.query.product_id
+    product:req.query.product_id
   });
 
   swatch.save(function(err,data){
     if(err){console.log(err)
     }else{
+      Product.findById(req.query.product_id).exec(function(err,product){
+        product.swatch.push(swatch._id);
+        product.save(function(err,returnedData){
+          if(err){return next(err)}
+        })
+      })
       res.redirect('/upload/new/swatch/description?product_id='+req.query.product_id+'&swatch_id='+swatch._id);
     }
   })
@@ -224,7 +264,7 @@ router.get('/new/swatch/description',function(req,res,next){
 router.post('/new/swatch/description/swatch_color',function(req,res,next){
   product_id = req.query.product_id;
   swatch_id = req.query.swatch_id;
-  Swatch.findOne({product_id:req.query.product_id,_id:swatch_id},function(err,data){
+  Swatch.findOne({product:req.query.product_id,_id:swatch_id},function(err,data){
      if(err){console.log(err)};
     data.set({color:req.query.color});
     data.save(function(err,updatedSwatch){
@@ -236,7 +276,35 @@ router.post('/new/swatch/description/swatch_color',function(req,res,next){
 
 });
 
-router.post('/new/swatch/descripiton',function(req,res,next){
+router.post('/new/swatch/description',function(req,res,next){
+  upload(req,res,function(err){
+    if(err){
+      res.send(err);
+    }else{
+      console.log(req.file);
+      res.send(req.file);
+    }
+  })
+})
 
+router.post('/new/swatch/description/image',function(req,res,next){
+  var image = new SwatchImage({
+    product:req.body.swatch_id,
+    image : req.body.keyname
+
+  });
+
+ image.save(function(err,image){
+   if(err){console.log(err)
+   }else{
+     Swatch.findById(req.body.swatch_id).exec(function(err,swatch){
+       swatch.images.push(image._id);
+       swatch.save(function(err,returnedData){
+         if(err){return next(err)}
+       })
+     })
+     res.send('image added');
+   }
+ })
 })
 module.exports = router;

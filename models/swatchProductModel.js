@@ -2,11 +2,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Product = require('./productsModel');
-
+var SwatchImage = require('./swatchImageModel');
 
 var SwatchProductSchema = new Schema({
 
-product_id:{
+product:{
    type: Schema.Types.ObjectId,
    ref: 'Product',
    required:true
@@ -21,7 +21,11 @@ product_id:{
   enum:['on','off'],
   required:true,
   default:'off'
-  }
+},
+images:{
+  type:[Schema.Types.ObjectId],
+  ref:"SwatchImage"
+}
 
 
 });
