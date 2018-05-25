@@ -140,7 +140,45 @@ function addImageToProduct(product_id,keyname){
 }
 
 
+function deleteImage(image_key){
+
+  $.ajax({
+    type:'post',
+    url:'/upload/delete/image?image_key='+image_key
+
+  }).done(function(result){
+    console.log(result);
+  })
+}
+
+function removeDomImage(target){
+  target.parents('.image-preview').remove();
+}
+
 $('.uploaded-photos .image-preview__btn').on('click',function(e){
-   var image_key = $(e.target).parent('.image_key').attr('value');
-   console.log('ok');
+   var target = $(e.target);
+   var image_key = target.prev('.image_key').attr('value');
+
+
+    deleteImage(image_key);
+    removeDomImage(target);
 })
+
+
+function removeProductImage(product_id){
+   $.ajax({
+     type:"post",
+     url:"/upload/delete/image/product/product_id="+product_id
+   }).done(function(result){
+     console.log('');
+   })
+}
+
+//FOR NOTIFICATIONS
+function showSaved(){
+  $('.saving').hide();
+  $('.saved').show();
+  if($('.saved').is(':visible')){
+    $('.saved').fadeOut(4000);
+  }
+}

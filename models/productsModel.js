@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Description = require('./descriptionModel');
 var Image = require('./imageModel');
-var Swatch = require('./swatchProductModel');
-var SwatchImage = require('./swatchImageModel');
+var Variant = require('./variantModel');
+var Variant_Image = require('./variantImageModel');
 
 var ProductSchema = new Schema({
 
@@ -41,18 +41,14 @@ var ProductSchema = new Schema({
     type:Schema.Types.ObjectId,
     ref:"Description"
   },
-  images:{
-    type:[Schema.Types.ObjectId],
+  images:[{
+    type:Schema.Types.ObjectId,
     ref:"Image"
-  },
-  swatch:{
-    type:[Schema.Types.ObjectId],
-    ref:"Swatch"
-  },
-  swatchImage:{
-    type:[Schema.Types.ObjectId],
-    ref:"SwatchImage"
-  }
+  }],
+  variants:[{
+    type:Schema.Types.ObjectId,
+    ref:"Variant"
+  }]
 
 });
 

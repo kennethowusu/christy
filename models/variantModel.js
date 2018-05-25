@@ -2,9 +2,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Product = require('./productsModel');
-var SwatchImage = require('./swatchImageModel');
+var Variant_Image = require('./variantImageModel');
 
-var SwatchProductSchema = new Schema({
+var VariantSchema = new Schema({
 
 product:{
    type: Schema.Types.ObjectId,
@@ -16,21 +16,21 @@ product:{
    type:String,
   },
 
-  swatch_status:{
+  variat_status:{
   type:String,
   enum:['on','off'],
   required:true,
   default:'off'
 },
-images:{
-  type:[Schema.Types.ObjectId],
-  ref:"SwatchImage"
-}
+images:[{
+  type:Schema.Types.ObjectId,
+  ref:"Variant_Image"
+}]
 
 
 });
 
 
 
-var SwatchProduct = mongoose.model('SwatchProduct',SwatchProductSchema);
-module.exports = SwatchProduct;
+var Variant = mongoose.model('Variant',VariantSchema);
+module.exports = Variant;

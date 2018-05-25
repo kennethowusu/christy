@@ -1,14 +1,16 @@
-var express = require('express');
-var router = express.Router();
+
 var aws = require('aws-sdk');
 var multer = require('multer');
 var multerS3 = require('multer-s3');
+var util = require('util');
+var async = require('async');
 var Product = require('../models/productsModel');
 var Description = require('../models/descriptionModel');
 var Image = require('../models/imageModel');
-var Swatch = require('../models/swatchProductModel');
-var SwatchImage = require('../models/swatchImageModel');
-var async = require('async');
+var Variant = require('../models/variantModel');
+var Variant_Image = require('../models/variantImageModel');
+var express = require('express');
+var router = express.Router();
 // const { check, validationResult } = require('express-validator/check');
 //get new product
 router.get('/uploads', function(req, res, next) {
@@ -18,13 +20,23 @@ router.get('/uploads', function(req, res, next) {
       Product.find().count().exec(callback);
     },
     products:function(callback){
-       Product.find().populate('description').populate('swatch').exec(callback);
+       Product.find().populate('images').populate({
+         path:'variants',
+         model:"Variant",
+         populate:{
+           path:'images',
+           model:"Variant_Image"
+         }
+       }).populate('description').exec(callback);
     },
-
+    // images:function(callback){
+    //    Image.find().populate('product').exec(callback);
+    // },
 
   },function(err,results){
     if(err){return next(err);}
-    console.log(results.products);
+    console.log(util.inspect(results.products, false, null));
+    // console.log(results.images);
     res.render('uploads',{count:results.count_products,products:results.products})
   }
 
@@ -94,7 +106,6 @@ router.post('/new',function(req,res,next){
 });
 
 
-
 router.get('/new/description', function(req, res, next) {
   if(!req.query.product_id){
     return res.send('<p>Please go back and click on the right product to continue uploading...</p>');
@@ -159,6 +170,46 @@ router.post('/new/description/ingredients',function(req,res,next){
 
 })
 
+
+
+//UPLOAD IMAGES
+router.post('/new/description',function(req,res,next){
+   upload(req,res,function(err){
+     if(err){
+       res.send(err);
+     }else{
+       console.log(req.file);
+       res.send(req.file);
+     }
+   })
+
+});
+
+
+
+//added uploaded image to product
+router.post('/new/description/image',function(req,res,next){
+   var image = new Image({
+      product:req.body.product_id,
+     image : req.body.keyname
+
+   });
+
+  image.save(function(err,image){
+    if(err){console.log(err)
+    }else{
+      Product.findById(req.body.product_id).exec(function(err,product){
+        product.images.push(image._id);
+        product.save(function(err,returnedData){
+          if(err){return next(err)}
+        })
+      })
+      res.send('image added');
+    }
+  })
+})
+
+
 var s3 = new aws.S3({
   apiVersion:'2006-03-01',
   endpoint:'https://s3.eu-west-2.amazonaws.com/',
@@ -183,40 +234,6 @@ var upload = multer({
 
 
 
-//UPLOAD IMAGES
-router.post('/new/description',function(req,res,next){
-   upload(req,res,function(err){
-     if(err){
-       res.send(err);
-     }else{
-       console.log(req.file);
-       res.send(req.file);
-     }
-   })
-
-});
-
-//added uploaded image to product
-router.post('/new/description/image',function(req,res,next){
-   var image = new Image({
-     product:req.body.product_id,
-     image : req.body.keyname
-
-   });
-
-  image.save(function(err,image){
-    if(err){console.log(err)
-    }else{
-      Product.findById(req.body.product_id).exec(function(err,product){
-        product.images.push(image._id);
-        product.save(function(err,returnedData){
-          if(err){return next(err)}
-        })
-      })
-      res.send('image added');
-    }
-  })
-})
 
 
 
@@ -227,21 +244,21 @@ router.get('/new/swatch',function(req,res,next){
   }
 
 
-  var swatch = new Swatch({
+  var variant = new Variant({
     color: '',
     product:req.query.product_id
   });
 
-  swatch.save(function(err,data){
+  variant.save(function(err,data){
     if(err){console.log(err)
     }else{
       Product.findById(req.query.product_id).exec(function(err,product){
-        product.swatch.push(swatch._id);
+        product.variants.push(variant._id);
         product.save(function(err,returnedData){
           if(err){return next(err)}
         })
       })
-      res.redirect('/upload/new/swatch/description?product_id='+req.query.product_id+'&swatch_id='+swatch._id);
+      res.redirect('/upload/new/swatch/description?product_id='+req.query.product_id+'&swatch_id='+variant._id);
     }
   })
 
@@ -263,11 +280,11 @@ router.get('/new/swatch/description',function(req,res,next){
 
 router.post('/new/swatch/description/swatch_color',function(req,res,next){
   product_id = req.query.product_id;
-  swatch_id = req.query.swatch_id;
-  Swatch.findOne({product:req.query.product_id,_id:swatch_id},function(err,data){
+  variant_id = req.query.swatch_id;
+  Variant.findOne({product:req.query.product_id,_id:variant_id},function(err,data){
      if(err){console.log(err)};
     data.set({color:req.query.color});
-    data.save(function(err,updatedSwatch){
+    data.save(function(err,updatedVariant){
       if(err) return console.log(err);
       res.send('description updated');
     })
@@ -276,16 +293,46 @@ router.post('/new/swatch/description/swatch_color',function(req,res,next){
 
 });
 
+//upload image to swatch
 router.post('/new/swatch/description',function(req,res,next){
+
   upload(req,res,function(err){
     if(err){
-      res.send(err);
-    }else{
-      console.log(req.file);
-      res.send(req.file);
+      return console.log(err)
     }
+
+
+
+  var swatch_id = req.query.swatch_id;
+  var product_id = req.query.product_id;
+  var filename = req.query.filename;
+
+
+  var variant_image = new Variant_Image({
+    variant:swatch_id,
+    image:filename
+  });
+
+  variant_image.save(function(err,image){
+    if(err){return console.log(err)}
+
+    Variant.findById(swatch_id,function(err,variant){
+      if(err){return console.log(err)}
+      variant.images.push(variant_image._id);
+      variant.save(function(err,updatedVariant){
+        if(err){return console.log(err)}
+      })
+    })
+
+
   })
+  res.send(req.file);
+
+    })
+
 })
+
+
 
 router.post('/new/swatch/description/image',function(req,res,next){
   var image = new SwatchImage({
@@ -307,4 +354,70 @@ router.post('/new/swatch/description/image',function(req,res,next){
    }
  })
 })
+
+
+//delete image
+router.post('/delete/image',function(req,res,next){
+  var key =  req.body.image_key;
+
+  var params = {
+    Bucket: 'glammycare',
+    Key: key
+  }
+
+  s3.deleteObject(params, function(err, data) {
+       if(err){
+         return console.log(err);
+       }
+       return res.send(data);
+    });
+})
+
+
+//see all variants
+router.get('/variants',function(req,res,next){
+  if(!req.query.product_id){
+  return  res.redirect('/upload/uploads')
+  };
+
+  Variant.find({product:req.query.product_id}).populate('images').populate('product','name').exec(function(err,data){
+    if(err){return console.log(err)}
+    console.log(util.inspect(data,false,null));
+
+    res.render('variants',{variants:data});
+  })
+
+
+
+})
+//
+// //delete image
+// router.post('/delete/image',function(req,res,next){
+//   var key =  req.query.image_key;
+//   var product_id = req.query.product_id;
+//   var image_id = req.query.image_id;
+//   var params = {
+//     Bucket: 'glammycare',
+//     Key: key
+//   }
+//
+//   s3.deleteObject(params, function(err, data) {
+//        if(err){
+//          return console.log(err);
+//        }
+//        Image.deleteOne(_id:image_id,function(err){
+//          if(err){ return console.log(err)}
+//
+//          Product.update({_id:product_id},{$pull:{image:image_id}}
+//          ).then(function(err){
+//            if(err){return console.log(err)};
+//          });
+//
+//        })
+//
+//        return res.send(data);
+//     });
+//
+// });
+
 module.exports = router;
