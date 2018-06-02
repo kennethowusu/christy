@@ -114,6 +114,10 @@ a:hover {
   margin-bottom: 20px;
 }
 
+.p-0 {
+  padding: 0;
+}
+
 .p-15 {
   padding: 15px;
 }
@@ -288,17 +292,14 @@ a:hover {
 
 .main-header {
   z-index: 10 !important;
+  height: 44px;
 }
 .main-header * {
   z-index: 10 !important;
 }
 
-.is-sticky {
-  background-color: #041e42;
-}
-
 .home-menu-cont {
-  background-color: #041e42;
+  background-color: #ef426c;
   width: 102px;
   height: 44px;
 }
@@ -338,6 +339,7 @@ a:hover {
 #form-search {
   width: 100%;
   margin: 0 5px;
+  height: 44px;
 }
 @media (min-width: 501px) {
   #form-search {
@@ -355,12 +357,12 @@ a:hover {
 }
 
 #search-field {
-  height: 40px;
-  border: 2px solid #041e42;
+  height: 44px;
+  border: 2px solid #ef426c;
   width: 100%;
 }
 #search-field::placeholder {
-  color: #041e42;
+  color: #ef426c;
   font-size: 14px;
   font-weight: bold;
 }
@@ -382,6 +384,7 @@ a:hover {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 10;
+  position: fixed !important;
 }
 
 .nav-container {
@@ -396,7 +399,7 @@ a:hover {
   transform: translateX(-100%);
 }
 .nav-container .controller {
-  background-color: #041e42;
+  background-color: #ef426c;
   height: 44px;
 }
 .nav-container .account span {
@@ -411,6 +414,10 @@ a:hover {
     width: 320px;
     transform: translateX(-320px);
   }
+}
+
+.wish-bg, .basket-bg {
+  border-radius: 50%;
 }
 
 .account-list {
@@ -430,6 +437,12 @@ a:hover {
 
 .no-translate {
   transform: translateX(0);
+}
+
+.is-sticky {
+  position: fixed !important;
+  background-color: #ef426c;
+  width: 100% !important;
 }
 
 .bg-violet {
@@ -485,10 +498,6 @@ a:hover {
   .banner {
     flex-direction: row;
   }
-}
-
-.banner-cont {
-  margin-top: 30px;
 }
 
 .grid-view-cont {
@@ -926,8 +935,25 @@ div.favourite {
   list-style-position: outside;
 }
 
-.basket-modal {
+.shop-color {
+  color: #ef426c;
+}
+
+.variant-loader {
+  background-color: rgba(255, 255, 255, 0.9);
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.basket-modal {
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
@@ -1110,6 +1136,24 @@ li.g-list-item .g-list-img {
   width: 170px;
   height: 170px;
   overflow: hidden;
+}
+
+.no-items {
+  width: 25px;
+  height: 25px;
+  top: -2px;
+  right: -8px;
+  z-index: 10;
+  background-color: #543939;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17.5px;
+}
+
+.no-items#no-bag-items {
+  top: -8px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -3,6 +3,7 @@
  }
  .main-header {
    z-index:10 !important;
+   height:44px;
 
  & *{
      z-index:10 !important;
@@ -13,9 +14,7 @@
 // .banner-cont,.banner-cont *{
 //   z-index: 2 !important;
 // }
-.is-sticky{
-  background-color:$navcolor;
-}
+
 .home-menu-cont{
   background-color:$navcolor;
   width:102px;
@@ -53,7 +52,7 @@
 #form-search{
   width:100%;
   margin:0 5px;
-
+  height:44px;
   @media(min-width:501px){
     width:261px;
     margin-right:auto;
@@ -67,7 +66,7 @@
   }
 }
 #search-field{
-  height:40px;
+  height:44px;
   border:2px solid $navcolor;
   width:100%;
   &::placeholder{
@@ -93,6 +92,7 @@
   height:100%;
   background-color:rgba(0, 0, 0, 0.3);
   z-index:10;
+  position:fixed !important;
 }
 .nav-container{
   width:100%;
@@ -124,7 +124,9 @@
   }
 }
 
-
+.wish-bg,.basket-bg{
+  border-radius: 50%;
+}
 .account-list{
   padding:20px;
 
@@ -142,4 +144,10 @@
 
 .no-translate{
   transform:translateX(0);
+}
+
+.is-sticky{
+  position:fixed !important;
+  background-color:$navcolor;
+  width:100% !important;
 }

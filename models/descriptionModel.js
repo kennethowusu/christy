@@ -2,6 +2,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Product = require('./productsModel');
+var escape = require('html-escape');
+var decode = require('decode-html');
 
 var DescriptionSchema = new Schema({
   product:{
@@ -23,6 +25,12 @@ var DescriptionSchema = new Schema({
 });
 
 
+//virtuals
+DescriptionSchema.virtual('escaped_about').get(function(){
+  var about = escape(this.about);
+  return about;
+
+})
 
 var Description = mongoose.model('Description',DescriptionSchema);
 module.exports = Description;

@@ -1,91 +1,132 @@
 extends layout
 block content
-  .product-page-container
-    //img.xzoom(src='path/to/preview_image_01.jpg', xoriginal='path/to/original_image_01.jpg')
-    section.zoom-container
-      img.xzoom(src='/images/product1.jpg')
-      .xzoom-thumbs
-       a(href='/images/product1.jpg')
-         img.xzoom-gallery(src='/images/prouct1.jpg', xpreview='/images/product1.jpg')
-       a(href='/images/product2.jpg')
-         img.xzoom-gallery( src='/images/product2.jpg')
-       a(href='/images/product3.jpg')
-         img.xzoom-gallery( src='/images/product3.jpg')
+       
+  if product
+    .product-page-container
+      //img.xzoom(src='path/to/preview_image_01.jpg', xoriginal='path/to/original_image_01.jpg')
+      section.zoom-container
+        img.xzoom(src='https://s3.eu-west-2.amazonaws.com/glammycare/'+product.images[0].image,xoriginal="https://s3.eu-west-2.amazonaws.com/glammycar/"+product.images[0].image)
+        .xzoom-thumbs
+          for images in product.images
+             a(href='https://s3.eu-west-2.amazonaws.com/glammycare/'+images.image)
+               img.xzoom-gallery(src='https://s3.eu-west-2.amazonaws.com/glammycare/'+images.image, xpreview='https://s3.eu-west-2.amazonaws.com/glammycar/'+images.image)
+             
+        
+      section.product-details.rel 
+        .variant-loader
+          .loader-cont
+            img.loader(src="/images/loader.gif")
+        h1.product-title#name #{product.name}
+        if product.color !== ""
+          span.mr-15.bold.color Color:
+          span#color #{product.color}
+        if product.variants.length > 1
+          h3 Options
+          section.swatch-container
+            for variant in product.variants    
+                div.swatch-img-cont
+                  a.swatcher(href= variant._id)
+                    img(src="https://s3.eu-west-2.amazonaws.com/glammycare/"+ variant.images[0].image)
+                
+          
+        p.product-price#price #{product.price}
+        
+        div.call-to-action
+          input#product_id(type="hidden" value= product._id)
+          input#image(type="hidden",value= product.images[0].image)
+          select#quant-select
+            option(value='1') 1
+            option(value='2') 2
+            option(value='3') 3
+            option(value='3') 3
+            option(value='4') 4
+            option(value='5') 5
+            option(value='6') 6
+            option(value='7') 7
+            option(value='8') 8
+            option(value='9') 9
+            option(value='10') 10
+            option(value='11') 11
+            option(value='12') 12
+        
+          button.signin.control.in-blk.text-center.transparent.no-border.bold.text-white.bg-nav#to-basket(type='submit',style="width:129px") Add to Basket
+        div.favourite
+           button.no-border.fav.transparent
+             img#heart(src="/images/heart.svg")
+             span Add to favourite 
+      
+      section.description
+        span.about About This Item
+        if product.description.about
+          p
+           section.desc 
+            |!{product.description.about}
+        
     
-    
-    section.product-details
-      h1.product-title Relvon ColorStay Pressed Powder Light/Medium
+        section.ingredient
+          if product.description.ingredients
+          span.bold Ingredients
+          p Ingredients:
+           |!{product.description.ingredients}
+        section.direction
+          if product.description.how_to_use
+            span.bold Directions
+            p Direction:
+                |!{product.description.how_to_use}
+        section.some-div
 
-      span.mr-15.bold.color Color:
-      span Always Almond
-      section.swatch-container
-            
-        div.swatch-img-cont
-          a(href="#")
-            img(src="/images/product1.jpg")
-        div.swatch-img-cont
-          a(href="#")
-            img(src="/images/product2.jpg")
-        
-      p.product-price &#8373;5.94
-      
-      div.call-to-action
-        select#quant-select
-          option(value='1') 1
-          option(value='2') 2
-          option(value='3') 3
-          option(value='3') 3
-          option(value='4') 4
-          option(value='5') 5
-          option(value='6') 6
-          option(value='7') 7
-          option(value='8') 8
-          option(value='9') 9
-          option(value='10') 10
-          option(value='11') 11
-          option(value='12') 12
-      
-        button.signin.control.in-blk.text-center.transparent.no-border.bold.text-white.bg-nav#to-basket(type='submit',style="width:129px") Add to Basket
-      div.favourite
-         button.no-border.fav.transparent
-           img#heart(src="/images/heart.svg")
-           span Add to favourite 
+
+    .basket-modal.none
+            section.basket-cont
+              .basket-control.d-flex.bg-white.control
+                span.hide-basket
+                a.border-1.signin.bg-white.text-center.mr-15(href="#")  View Basket 
+                a.signin.bg-white.signin.bg-nav.bold.text-white(href="#").text-center  Check Out
     
-    section.description
-      span.about About This Item
-      section.desc 
-        p
-          |Safely clean hard-to-reach ar
-          |eas with Johnson's Safety Swabs. 
-          |Clinically proven safer for children 
-          |than traditional swabs, Johnson's Safety 
-          |Swabs gently clean and dry baby and grown-up
-          |ears.The swabs are made of 100 percent pure, nonchlorine-bleached cotton. They are designed with the Ear Safe Bulb shape to make cleaning the delicat
-          |e area around your babys ears safer and 
-          |easier.
-        
-        p
-          li Safely clean hard-to-reach areas
-          li Ear Safe Bulb shape specially shaped for cleaning ears
-          li Great for applying ointment and makeup
-          li 100% pure, nonchlorine-bleached cotton
-          li Clinically proven to be safer for children
-          li 185 swabs
-      section.ingredient
-        span.bold Ingredients
-        p Ingredients:
-          |Talc, Avena Sativa (Oat) Kernel Flour, Calcium Silicate, Zinc Stearate,
-          |Fragrance/Parfum, Dimethicone, Eucalyptus Globulus Leaf Oil, Sodium Dehydroacetate
-          | , Camphor, Mineral Oil/Huile Minerale, Menthol, Isopropyl Myristate, Propylparaben, Eugenia
-          | Caryophyllus (Clove) Flower Oil, Methylparaben, Quaternium 15, BHT, Mica, Iron Oxides
-          |, May Contain: Ultra Marines
-      section.direction
-        span.bold Directions
-        p Direction:
-            li Safely clean hard-to-reach areas
-            li Ear Safe Bulb shape specially shaped for cleaning ears
-            li Great for applying ointment and makeup
-            li 100% pure, nonchlorine-bleached cotton
-            li Clinically proven to be safer for children
-            li 185 swab
-  
+              .basket-section.d-flex.flex-wrap.flex-col
+                .basket-primary
+                  span.blk.basket.head.em-15.mt-15.mb-15
+                    |You just added 
+                    span.basket-quant 1
+                    span  item(
+                    a.text-dark.underline(href="#").quant_total 3 items in total)
+                      
+    
+                  .basket-item.d-flex.flex-wrap.flex-col
+                    small.text-dark.basket-item-head.basket-name #{product.name}
+                    if product.color !== ""
+                     span.in-blk.text-grey Color : 
+                     span.basket-color Brown
+                    a.mt-15.mb-20.basket-img.in-blk(href="#")
+                      img.control.basket-img(src="/images/product1.jpg")
+                    .d-flex
+                      span.bold.basket-price &#8373; #{product.price}
+                      span.basket-qty  Qty  
+                      span.basket-quant 
+                        |  1
+                .basket-secondary.rel
+                  button.no-border.transparent.abs#modal-close
+                    img(src="/images/modal-close.svg")
+                  div.est-cont
+    
+                    .d-flex.pt-20
+                      span.mr-auto Subtotal(
+                        span.quantity_total 4 
+                        span
+                         | items)
+                      span &#8373;
+                      span.total_amount 26.91
+    
+                    .d-flex.basket-seperator.pb-20
+                      span.mr-auto Shipping
+                      span &#8373;2.35
+                    div.total-cont.d-flex
+                      span.mr-auto.total Est. total 
+                      span.total.bold &#8373;
+                      span.total.bold.total_amount 45
+    
+                    div
+                      a.blk.signin.border-1.bold.text-dark.text-center(href="#") View Cart
+                      a.blk.signin.bold.text-white.text-center.bg-nav.no-border(href="#") View Cart
+    
+    

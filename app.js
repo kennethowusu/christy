@@ -8,15 +8,17 @@ var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
-
+var createBasket = require('./middleware/index');
 
 
 require('dotenv').config();
 //require routes
+var basket = require('./routes/basket');
+var account = require('./routes/account');
 var index = require('./routes/index');
 var users = require('./routes/users');
-var account = require('./routes/account');
-var upload = require('./routes/upload');
+
+
 var app = express();
 
 // view engine setup
@@ -26,7 +28,9 @@ app.set('view engine', 'pug');
 
 
 //connect to db
-mongoose.connect("mongodb://localhost/glammycare");
+var connection = 'mongodb://kenneth:password123@ds129770.mlab.com:29770/glammycare';
+// mongoose.connect("mongodb://localhost/glammycare");
+mongoose.connect(connection);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console,'connection error'));
 // uncomment after placing your favicon in /public
@@ -34,7 +38,6 @@ db.on('error', console.error.bind(console,'connection error'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressValidator());
@@ -49,7 +52,7 @@ app.use(session({
     mongooseConnection: db
   })
 }))
-
+app.use(createBasket.cookie);
 //make userid available to templates
 app.use(function(req,res,next){
   res.locals.currentUser  =  req.session.userId;
@@ -57,10 +60,11 @@ app.use(function(req,res,next){
 })
 
 
-app.use('/', index);
+
 app.use('/users', users);
 app.use('/account',account);
-app.use('/upload',upload);
+app.use('/basket',basket);
+app.use('/', index);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

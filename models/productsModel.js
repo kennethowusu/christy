@@ -5,7 +5,7 @@ var Description = require('./descriptionModel');
 var Image = require('./imageModel');
 var Variant = require('./variantModel');
 var Variant_Image = require('./variantImageModel');
-
+var hthmlparser = require('htmlparser2');
 var ProductSchema = new Schema({
 
   name:{
@@ -52,6 +52,10 @@ var ProductSchema = new Schema({
 
 });
 
+//virtuals for url
+ProductSchema.virtual('url').get(function(){
+  return this.name.replace(/\s+/g,'-');
+})
 
 
 var Product = mongoose.model('Product',ProductSchema);

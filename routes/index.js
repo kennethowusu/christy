@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
-
+var indexController = require('../controllers/indexController');
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/',indexController.getIndexPage);
+
 
 /*GET makeup*/
 
@@ -35,14 +34,20 @@ router.get('/basket',function(req,res,next){
   res.render('basket',{item:req.params.product})
 })
 
-router.get('/:product',function(req,res,next){
-  res.render('product',{item:req.params.product})
+//get a product
+router.get('/:product/:id',indexController.getProductPage);
+
+
+//get a variant
+router.post('/variant',indexController.getVariant);
+
+router.get('/cookies',function(req,res,next){
+  console.log(req.cookies);
 })
 
-
-
-
-
-
-
+router.get('/destroy',function(req,res,next){
+  res.clearCookie('basket');
+  next();
+  res.send('everything is ok');
+})
 module.exports = router;

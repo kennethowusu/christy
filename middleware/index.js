@@ -15,5 +15,12 @@ function requiresLogin(req,res,next){
   }
 }
 
+function createBasketCookie(req,res,next){
+  if(req.cookies.basket === undefined){
+    res.cookie('basket',{});
+  }
+  next();
+}
 module.exports.loggedOut = loggedOut;
 module.exports.requiresLogin = requiresLogin;
+module.exports.cookie = createBasketCookie;

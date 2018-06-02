@@ -1,0 +1,17 @@
+.no-items{
+  width: 25px;
+  height: 25px;
+  top: -2px;
+  right: -8px;
+  z-index: 10;
+  background-color: #543939;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17.5px;
+}
+
+.no-items#no-bag-items{
+  top:-8px;
+}
