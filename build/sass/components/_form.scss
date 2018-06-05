@@ -1,0 +1,42 @@
+
+%action-container{
+  border: 1px solid #e6e7e8;
+  border-radius: 4px;
+}
+
+%input{
+  border: 1px solid #d4cfcf;
+  border-radius: 4px;
+  padding: 5px 8px;
+  width:100%;
+}
+.form-label{
+  font-size:14px;
+  color:#4c4a4a;
+}
+.text-field{
+ @extend %input;
+
+  &:focus,&:hover{
+    border-color:#03a9f4;
+    outline:none;
+  }
+}
+
+.text-field--rounded{
+  border-radius:70px;
+}
+
+
+//links
+.link-btn{
+  @extend %input;
+  text-align: center;
+  color:#fff;
+}
+.link-btn--emph{
+    background-color:$navcolor;
+}
+.link-btn--rounded{
+  border-radius:70px;
+}

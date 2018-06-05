@@ -1,31 +1,3 @@
-button:focus {
-  outline: 0;
-}
-
-button {
-  background-color: transparent;
-}
-button:hover {
-  cursor: pointer;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-body {
-  font-family: "PT sans", "sans-serif";
-}
-
-a:hover {
-  text-decoration: none;
-}
-
 .d-flex {
   display: flex;
 }
@@ -1154,6 +1126,75 @@ li.g-list-item .g-list-img {
 
 .no-items#no-bag-items {
   top: -8px;
+}
+
+.text-field, .link-btn {
+  border: 1px solid #d4cfcf;
+  border-radius: 4px;
+  padding: 5px 8px;
+  width: 100%;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #4c4a4a;
+}
+
+.text-field:focus, .text-field:hover {
+  border-color: #03a9f4;
+  outline: none;
+}
+
+.text-field--rounded {
+  border-radius: 70px;
+}
+
+.link-btn {
+  text-align: center;
+  color: #fff;
+}
+
+.link-btn--emph {
+  background-color: #ef426c;
+}
+
+.link-btn--rounded {
+  border-radius: 70px;
+}
+
+* {
+  outline: 0;
+}
+*:focus {
+  outline: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button {
+  background-color: transparent;
+}
+button:hover {
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  font-family: "PT sans", "sans-serif";
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */

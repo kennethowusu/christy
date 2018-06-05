@@ -1,0 +1,40 @@
+extends partials/checkout-layout
+block content 
+  .sco-container
+    .signin-container
+      h1 Sign In 
+      label
+        span.form-label Email Address*
+      input.text-field(type="text")
+      
+      label
+        span.form-label Password*
+      input.text-field(type="text")
+        
+      input.link-btn.link-btn--emph.link-btn--rounded.chk-signin(type="submit",value="Sign In")
+    
+    
+    .signup-container
+      h2 No account? No problem.
+      p Continue checkout without an account 
+      a.link-btn.blk.link-btn--emph.link-btn--rounded(href="#") Continue
+    
+  .lvl-indicator-container
+    .lvl-indicator.d-flex.align-items-center
+      .indicator-num-cont
+        span.indicator-num.blk 1
+      .indicator
+        span.indicator-words Shipping  options
+        
+    .lvl-indicator.d-flex.align-items-center
+      .indicator-num-cont
+        span.indicator-num.blk 2
+      .indicator
+        span.indicator-words Enter Shipping Address
+        
+    .lvl-indicator.d-flex.align-items-center
+      .indicator-num-cont
+        span.indicator-num.blk 3
+      .indicator
+        span.indicator-words Enter Payment Method
+    

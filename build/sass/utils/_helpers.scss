@@ -1,0 +1,93 @@
+/*inclues but not limited to the following
+ *Clearfix
+ *colors
+ *display
+ *embed
+ *flex
+ *float
+ *position
+ *shadows
+ *sizing
+ *spacing
+*text transform
+*vertical align
+*visibility
+*/
+
+
+//display
+.d-flex{
+  display:flex;
+}
+.align-items-center{
+  align-items:center;
+}
+
+.justify-center{
+  justify-content: center;
+}
+.blk{
+  display:block;
+}
+.inline-blk{
+  display:inline-block;
+}
+
+//margins
+.ml-auto{
+  margin-left:auto;
+}
+.mr-auto{
+  margin-right:auto;
+}
+//position
+.rel{
+  position:relative;
+}
+.fixed{
+  position:fixed;
+}
+.abs{
+  position:fixed;
+}
+//text-transform
+.capitalize{
+  text-transform:capitalize;
+}
+.lowercase{
+  text-transform: lowercase;
+}
+.uppercase{
+  text-transform:uppercase;
+}
+
+
+//text-alignment
+.text-center{
+  text-align:center;
+}
+.text-left{
+  text-align:left;
+}
+.text-right{
+  text-align:right;
+}
+.text-justify{
+  text-align:justify;
+}
+
+
+
+//other helpers
+.bg-white{
+  background-color:#ffffff;
+}
+.full-flex{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.control{
+  width:100%;
+}

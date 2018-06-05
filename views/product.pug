@@ -5,11 +5,11 @@ block content
     .product-page-container
       //img.xzoom(src='path/to/preview_image_01.jpg', xoriginal='path/to/original_image_01.jpg')
       section.zoom-container
-        img.xzoom(src='https://s3.eu-west-2.amazonaws.com/glammycare/'+product.images[0].image,xoriginal="https://s3.eu-west-2.amazonaws.com/glammycar/"+product.images[0].image)
+        img.xzoom(src='https://s3.eu-west-2.amazonaws.com/glammycar/'+product.images[0].image,xoriginal="https://s3.eu-west-2.amazonaws.com/glammycar/"+product.images[0].image)
         .xzoom-thumbs
           for images in product.images
-             a(href='https://s3.eu-west-2.amazonaws.com/glammycare/'+images.image)
-               img.xzoom-gallery(src='https://s3.eu-west-2.amazonaws.com/glammycare/'+images.image, xpreview='https://s3.eu-west-2.amazonaws.com/glammycar/'+images.image)
+             a(href='https://s3.eu-west-2.amazonaws.com/glammycar/'+images.image)
+               img.xzoom-gallery(src='https://s3.eu-west-2.amazonaws.com/glammycar/'+images.image, xpreview='https://s3.eu-west-2.amazonaws.com/glammycar/'+images.image)
              
         
       section.product-details.rel 
@@ -26,7 +26,7 @@ block content
             for variant in product.variants    
                 div.swatch-img-cont
                   a.swatcher(href= variant._id)
-                    img(src="https://s3.eu-west-2.amazonaws.com/glammycare/"+ variant.images[0].image)
+                    img(src="https://s3.eu-west-2.amazonaws.com/glammycar/"+ variant.images[0].image)
                 
           
         p.product-price#price #{product.price}

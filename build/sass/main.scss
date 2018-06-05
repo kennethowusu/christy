@@ -1,0 +1,47 @@
+
+
+//import vendors styles
+
+
+//
+// //import utils styles
+// @import 'utils/variables',
+//         'utils/helpers',
+//         'utils/mixins';
+//
+//
+//
+
+//
+// //import layout styles
+//
+//
+// //
+// //import component styles
+//   @import 'components/buttons',
+//           'components/nav',
+//           'components/search',
+//           'components/post';
+//
+//
+//   //import pages styles
+//   @import 'pages/home';
+
+  @import 'components/variables',
+          'components/mixins',
+          'components/utilities',
+          'components/nav',
+          'components/banner',
+          'components/items',
+          'components/login',
+          'components/primary',
+          'components/secondary',
+          'components/product',
+          'components/basket',
+          'components/g-list',
+          'components/_basket_item',
+          'components/form';
+
+  //import base styles
+  @import 'base/reset';
+    // 'base/typography';

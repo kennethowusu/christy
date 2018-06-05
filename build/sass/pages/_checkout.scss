@@ -1,0 +1,61 @@
+%form-container{
+  border: 1px solid #e6e7e8;
+  border-radius: 4px;
+  padding:20px 30px;
+  width:100%;
+  margin:15px;
+}
+
+.sco-container{
+  @media(min-width:750px){
+  display:flex;
+
+  }
+}
+.signin-container{
+  @extend %form-container;
+  @media(min-width:750px){
+  max-width:335px;
+  }
+}
+.signup-container{
+  @extend %form-container;
+  @media(min-width:750px){
+  max-width:335px;
+  }
+}
+.chk-signin{
+  margin-top:30px;
+  margin-bottom:40px;
+}
+
+.indicator-num-cont{
+  border-radius: 50%;
+  border: 1px solid #b3a7a7;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  padding:5px;
+  margin-right:20px;
+  .indicator-num{
+    height:100%;
+  }
+}
+.lvl-indicator-container{
+  margin-top:30px;
+  opacity: 0.5;
+}
+.indicator{
+
+
+  & .indicator-words{
+    font-weight:bold;
+    font-size:1.2em;
+
+  }
+}
+
+.lvl-indicator{
+  border-top:1px solid #b3a7a7;
+  padding:15px 25px;
+}

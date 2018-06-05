@@ -6,17 +6,17 @@ module.exports = function(grunt){
 
   //sass task
   sass: {
-    dist: {
-      options: {
-        style: 'expanded'
-      },
-      files: {
-        'public/stylesheets/style.css': 'scss/style.scss',
-        'public/stylesheets/upload.css':'scss/upload/upload.scss'
-        //'widgets.css': 'widgets.scss'
+      dist: {
+        options: {
+          style: 'expanded'
+        },
+        files: {
+          'public/stylesheets/style.css': 'build/sass/main.scss',
+          'public/stylesheets/checkout.css': 'build/sass/checkout.scss',
+          //'widgets.css': 'widgets.scss'
+        }
       }
-    }
-  },
+    },
 
   //autoprefixer task
   autoprefixer:{
@@ -26,8 +26,8 @@ module.exports = function(grunt){
     },
 
      main_css: {
-      src: 'css/style.css',
-      dest: 'css/style.css'
+      src: 'public/stylsheets/css/style.css',
+      dest: '/public/styesheets/css/style.css'
     }
   },
 
@@ -39,7 +39,7 @@ module.exports = function(grunt){
       livereload:false
     },
     scss: {
-      files: ['scss/*'],
+      files: ['build/sass/**/*'],
       tasks: ['sass','autoprefixer']
     },
 

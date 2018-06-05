@@ -1,0 +1,28 @@
+.form-search{
+ & .s_field{
+   border:none;
+   height:42px;
+   color:$nav-color;
+   &::placeholder{
+     font-family:$body-font;
+     color:$nav-color;
+     padding:15px;
+     padding-left:0;
+   }
+   @media(min-width:$nav-large-breakpoint){
+      height:auto;
+   }
+ }
+ margin-top:25px;
+ margin-bottom:25px;
+ width:158px;
+ .search-svg{
+   width:15px;
+   height:16px;
+ }
+
+ @media(min-width:$nav-large-breakpoint){
+    margin:0;
+   order:1;
+ }
+}

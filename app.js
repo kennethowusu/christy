@@ -13,6 +13,7 @@ var createBasket = require('./middleware/index');
 
 require('dotenv').config();
 //require routes
+var checkout = require('./routes/checkout');
 var basket = require('./routes/basket');
 var account = require('./routes/account');
 var index = require('./routes/index');
@@ -65,6 +66,7 @@ app.use('/users', users);
 app.use('/account',account);
 app.use('/basket',basket);
 app.use('/', index);
+app.use('/checkout',checkout);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
