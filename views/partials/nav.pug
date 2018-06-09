@@ -9,15 +9,21 @@ div#nav-overlay.abs
       
       section.account
         ul.account-list
+         if !currentUser
+           li
+             a(href="/account/signin?returnUrl="+returnUrl) #[img#signin(src='/images/signin.svg')] #[span Sign In]
          li
-           a(href="/account/signin") #[img#signin(src='/images/signin.svg')] #[span Sign In]
-         li
-           a(href="#") #[img#track-order(src='/images/reorder.svg')] #[span Track Order]
-         li
-           a(href="/account/signup") #[img#add-user(src='/images/add-user.svg')] #[span Create Account]
+             a(href="#") #[img#track-order(src='/images/reorder.svg')] #[span Track Order]
+         if !currentUser
+           li
+           
+             a(href="/account/signup") #[img#add-user(src='/images/add-user.svg')] #[span Create Account]
+         if currentUser
+           li
+             a(href="/account/logout") #[img#help(src='/images/logout.svg')] #[span Logout]
          li
             a(href="#") #[img#help(src='/images/help.svg')] #[span Help] 
-            
+        
       section.account
         ul.account-list
           li

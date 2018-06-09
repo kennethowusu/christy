@@ -58,3 +58,35 @@ module.exports.getBasketHistory = function(req,res,next){
   }
   res.send(result);
 }
+
+module.exports.getBasket = function(req,res,next){
+
+  var savedBasket = req.cookies.basket;
+  var prices = [];
+  var no_items = [];
+  var total = 0;
+  var total_num_of_items = 0;
+  for(var product_id in savedBasket){
+    prices.push(parseInt(savedBasket[product_id].price) * parseInt(savedBasket[product_id].quantit));
+    no_items.push(parseInt(savedBasket[product_id].quantity));
+  }
+  prices.forEach(function(price){
+    total += price;
+
+  });
+  no_items.forEach(function(quantity){
+   total_num_of_items += quantity;
+
+  });
+  var total_quantity = _.size(savedBasket);
+  var result = {
+    total : total,
+    total_num_of_items : total_num_of_items,
+    total_quantity : total_quantity
+  }
+  console.log(savedBasket);
+    res.render('basket',{items:savedBasket,basket:result});
+
+
+
+}

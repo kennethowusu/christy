@@ -14,7 +14,7 @@ module.exports.getSignupForm = function(req,res,next){
 }
 
 module.exports.postLogin  = function(req,res,next){
-
+  var returnUrl = req.query.returnUrl;
  //authenticate input against database documents
 
    User.findOne({email:req.body.email})
@@ -28,8 +28,12 @@ module.exports.postLogin  = function(req,res,next){
           return res.render('signin',{user:{'email':req.body.email,'password':req.body.password},email_Error:"Password is incorrect"});
       }else{
         req.session.userId = user._id;
-        return res.redirect('/profile');
+        if(!returnUrl){
+          return res.redirect('/');
+        }else{
+        return res.redirect(returnUrl);
       }
+    }//else
     })
    })
 
@@ -37,6 +41,7 @@ module.exports.postLogin  = function(req,res,next){
 }
 
 module.exports.postForm = function(req,res,next){
+  var returnUrl = req.query.returnUrl;
   var userData = new User({
     firstname :req.body.firstname,
     lastname :req.body.lastname,
@@ -54,7 +59,11 @@ module.exports.postForm = function(req,res,next){
          console.log(error)
        }else{
          req.session.userId = user._id;
-         res.redirect('/profile');
+         if(!returnUrl){
+           return res.redirect('/');
+         }else{
+         return res.redirect(returnUrl);
+       }
        }
       })
     }

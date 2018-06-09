@@ -4,12 +4,16 @@ var setCookie = require('set-cookie');
 var basketController = require('../controllers/basketController');
 
 
+
+//get basket page
+router.get('/',basketController.getBasket);
+
+
 //add to basket
 router.post('/add/to/basket',basketController.addToBaset);
 
 
 router.get('/get/basket/history',basketController.getBasketHistory);
-
 
 
 router.get('/set',function(req,res,next){

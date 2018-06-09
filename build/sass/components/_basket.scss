@@ -106,20 +106,29 @@ span.total{
   }
 }
 
-
+.basket-title{
+  font-size:1.4em;
+}
 
 //for basket page
 .basket-item__image{
   width:70px;
   height:70px;
+
+  @media(min-width:575px){
+    width:137px;
+  }
 }
 .basket-p__total-cont{
   margin-top:30px;
   padding:20px;
+
   border-left:1px solid $dptbordercolor;
   border-top:1px solid $dptbordercolor;
   border-bottom:1px solid $dptbordercolor;
-
+  @media(min-width:729px){
+    border:0;
+  }
 }
 .total-top{
 
@@ -135,12 +144,19 @@ span.total{
 }
 }
 .basket-p__cont{
-
+   // @media(min-width:){
+   //
+   // }
     @media(min-width:792px){
     display:flex;
+    border-right:1px solid #000;
     }
 }
-
+.basket-item__title{
+  @media(min-width:575px){
+    font-size:1.1em;
+  }
+}
 .basket-item{
       &>div{
         @media(min-width:792px){

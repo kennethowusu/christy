@@ -1,0 +1,87 @@
+extends partials/checkout-layout.pug
+block content 
+  .completed-basket
+    img.img-complete.mr-30(src='/images/complete.svg')
+    
+    img.img-shipped.mr-15(src="/images/shipped.svg")    
+    span.progress-head Shipping
+    
+    section.confirmed-products
+      .confirm-product.full-flex
+        .confirm-product__cont.mb-20
+          img.confirm-product__img(src="/images/product1.jpg")
+        div
+          span.arrives-word Arrives by 
+          span.bold.arrive-date Fri Jun 8
+          
+      .confirm-product.full-flex
+        .confirm-product__cont.mb-20
+          img.confirm-product__img(src="/images/product1.jpg")
+        div
+          span.arrives-word Arrives by 
+          span.bold.arrive-date Fri Jun 8
+       
+  section.ship-Address
+        .d-flex
+          .indicator-num-cont.mr-20
+            span.indicator-num.blk 2
+          div
+            span.progress-head Enter Shipping address
+        span.blk.bold *required field
+        
+        
+        form.ship-form(action="",method="post")
+          .primary-field
+            .field
+              label(for="firstname")
+                span.form-label First name*
+              input.text-field(type='text',id="firstname",name="firstname")
+            .field
+              label(for="lastname")
+                span.form-label Last name*
+              input.text-field(type="text",id="lastname",name="lastname")
+            .field
+              label(for="number")
+                span.form-label Phone number*
+              input.text-field(type="text",id="number",name="number")
+            .field
+              label(for="alt_number")
+                span.form-label Other Phone number
+              input.text-field(type="text",id="alt_number",name="alt_number")
+          .secondary-field
+            .field
+              label(for="email")
+                span.form-label Email address for order notification*
+              input.text-field(type="text",name="email",id="email")
+                
+            .field    
+              label(for="region")
+                span.form-label Region*
+              input.text-field(type="text",id="region",name="region")
+            .field
+              label(for="city")
+                span.form-label City* 
+              input.text-field(type="text",id="city",name="city")
+            
+            .field
+              label(for="address")
+                span.form-label Address*
+              input.text-field(type="text",name="address",id="address")        
+            
+            .field.d-flex.complete-total.align-items-center
+              input.mr-auto.link-btn.link-btn--rounded.link-btn--emph(type="submit",value="Continue")
+              
+              div
+                span Est total 
+                span.bold &#8373;43.16
+                
+                
+                
+  .lvl-indicator-container.indicator-3
+    .lvl-indicator.d-flex.align-items-center.lvl-3
+      .indicator-num-cont
+        span.indicator-num.blk 3
+      .indicator
+        span.indicator-words Shipping  options
+
+                  

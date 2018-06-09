@@ -30,11 +30,6 @@ router.get('/men',function(req,res,next){
 })
 
 
-router.get('/basket',function(req,res,next){
-  res.render('basket',{item:req.params.product})
-})
-
-
 
 //get a product
 router.get('/:product/:id',indexController.getProductPage);

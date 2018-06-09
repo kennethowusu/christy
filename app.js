@@ -59,20 +59,26 @@ app.use(function(req,res,next){
   res.locals.currentUser  =  req.session.userId;
   next();
 })
+//get returning Url after signin or signup
+app.use(function(req,res,next){
+  res.locals.returnUrl = req.originalUrl;
+  next();
+})
 
 
-
+app.use('/checkout',checkout);
 app.use('/users', users);
 app.use('/account',account);
 app.use('/basket',basket);
 app.use('/', index);
-app.use('/checkout',checkout);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

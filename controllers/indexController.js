@@ -7,9 +7,32 @@ var Variant_Image = require('../models/variantImageModel');
 var Description_Image = require('../models/descriptionModel');
 var util = require('util');
 var async = require('async');
-
+var _ = require('lodash');
 
 module.exports.getIndexPage = function(req,res,next){
+  var savedBasket = req.cookies.basket;
+  var prices = [];
+  var no_items = [];
+  var total = 0;
+  var total_num_of_items = 0;
+  for(var product_id in savedBasket){
+    prices.push(parseInt(savedBasket[product_id].price) * parseInt(savedBasket[product_id].quantit));
+    no_items.push(parseInt(savedBasket[product_id].quantity));
+  }
+  prices.forEach(function(price){
+    total += price;
+
+  });
+  no_items.forEach(function(quantity){
+   total_num_of_items += quantity;
+
+  });
+  var total_quantity = _.size(savedBasket);
+  var result = {
+    total : total,
+    total_num_of_items : total_num_of_items,
+    total_quantity : total_quantity
+  }
   async.parallel({
    find_makeup:function(callback){
      Product.find({main_category:"makeup"}).populate('images').limit(4).exec(callback);
@@ -20,8 +43,10 @@ module.exports.getIndexPage = function(req,res,next){
   },function(err,results){
     if(err){console.log(err)};
 
-    console.log(util.inspect(results.find_men.images,false,null));
-    res.render('index', { title: 'Express',makeups:results.find_makeup,mens:results.find_men });
+
+     console.log(result);
+
+    res.render('index', { title: 'Express',makeups:results.find_makeup,mens:results.find_men,basket:result });
 
   })
 

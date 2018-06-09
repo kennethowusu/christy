@@ -3,13 +3,30 @@
   border-radius: 4px;
   padding:20px 30px;
   width:100%;
-  margin:15px;
+
 }
 
 .sco-container{
+  padding:15px;
   @media(min-width:750px){
-  display:flex;
 
+  display:flex;
+  justify-content: space-between;
+  }
+
+  @media(min-width:970px){
+    padding-left:40px;
+    padding-right:40px;
+  }
+
+  @media(min-width:1000px){
+    padding-left:50px;
+    padding-right:50px;
+  }
+
+  @media(min-width:1200px){
+    padding-left:100px;
+    padding-right:100px;
   }
 }
 .signin-container{
@@ -46,16 +63,32 @@
   opacity: 0.5;
 }
 .indicator{
-
-
   & .indicator-words{
     font-weight:bold;
     font-size:1.2em;
-
   }
 }
 
 .lvl-indicator{
   border-top:1px solid #b3a7a7;
   padding:15px 25px;
+}
+
+.divider{
+  width:100%;
+  border-top:1px solid #b3a7a7;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+.persistent-summary{
+  @extend %form-container;
+  box-shadow: 0 0 3px #908181;
+
+  @media(min-width:750px){
+    max-width:230px;
+  }
+
+ & .total,.est-total{
+   font-size:1.2em;
+ }
 }
