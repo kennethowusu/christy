@@ -1,5 +1,6 @@
 extends partials/checkout-layout.pug
-block content 
+block content
+  
   .completed-basket
     img.img-complete.mr-30(src='/images/complete.svg')
     
@@ -12,14 +13,14 @@ block content
           img.confirm-product__img(src="/images/product1.jpg")
         div
           span.arrives-word Arrives by 
-          span.bold.arrive-date Fri Jun 8
+          span.bold.arrive-date= date
           
       .confirm-product.full-flex
         .confirm-product__cont.mb-20
           img.confirm-product__img(src="/images/product1.jpg")
         div
           span.arrives-word Arrives by 
-          span.bold.arrive-date Fri Jun 8
+          span.bold.arrive-date= date
        
   section.ship-Address
         .d-flex

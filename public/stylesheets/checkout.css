@@ -562,4 +562,21 @@ a:hover {
   border-bottom: 1px solid #b3a7a7;
 }
 
+.sending-address {
+  opacity: 0.5;
+}
+
+.address-cont {
+  margin-left: 64px;
+}
+.address-cont .address {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.confirm-checkout {
+  opacity: 1;
+}
+
 /*# sourceMappingURL=checkout.css.map */

@@ -1,4 +1,43 @@
-extends partials/checkout-layout
+extends partials/checkout-layout.pug
 block content
-  p= address
-  span Checkout confirm
+  
+  .completed-basket
+    img.img-complete.mr-30(src='/images/complete.svg')
+    
+    img.img-shipped.mr-15(src="/images/shipped.svg")    
+    span.progress-head Shipping
+    
+    section.confirmed-products
+      .confirm-product.full-flex
+        .confirm-product__cont.mb-20
+          img.confirm-product__img(src="/images/product1.jpg")
+        div
+          span.arrives-word Arrives by 
+          span.bold.arrive-date= date
+          
+      .confirm-product.full-flex
+        .confirm-product__cont.mb-20
+          img.confirm-product__img(src="/images/product1.jpg")
+        div
+          span.arrives-word Arrives by 
+          span.bold.arrive-date= date
+  .sending-address
+      img.img-complete.mr-30(src='/images/complete.svg')
+      span.progress-head Sending To
+      .address-cont
+        p.address  #{address.firstname} #{address.lastname}
+        p.address #{address.region}
+        p.address #{address.city}
+        p.address #{address.address}
+        p.address #{address.email}
+        p.address #{address.number}
+                  
+                
+  .lvl-indicator-container.confirm-checkout
+    .lvl-indicator.d-flex.align-items-center
+      .indicator-num-cont
+        span.indicator-num.blk 3
+      .indicator
+        span.indicator-words Shipping  options
+
+                  

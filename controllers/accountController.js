@@ -37,7 +37,6 @@ module.exports.postLogin  = function(req,res,next){
     })
    })
 
-
 }
 
 module.exports.postForm = function(req,res,next){

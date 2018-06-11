@@ -1,11 +1,14 @@
 extends partials/checkout-layout
 block content
   .sco-container
+    
     form.signin-container(action="",method="post")
+        if email_Error
+            p.text-danger  #{email_Error}
         h1 Sign In
       
       
-    
+        
         .field
           label#email-validate(for="email")
             span.email-label Email Address*
@@ -13,7 +16,7 @@ block content
               img.error(src="/images/error.svg")
               span.text-danger Please enter a valid email address.
             
-          input.text-field.control#email(type="text")
+          input.text-field.control#email(type="text",name="email")
           
         .field
           label#password-validate(for="password")
@@ -22,14 +25,14 @@ block content
               img.error(src="/images/error.svg")
               span.text-danger Please enter your password
               
-          input.text-field#password(type="text")
+          input.text-field#password(type="password",name="password")
         input.link-btn.link-btn--emph.link-btn--rounded.chk-signin#form-submit(type="submit",value="Sign In")
           
           
     .signup-container
       h2 No account? No problem.
       p Continue checkout without an account
-      a.link-btn.blk.link-btn--emph.link-btn--rounded(href="#") Continue
+      a.link-btn.blk.link-btn--emph.link-btn--rounded(href="/checkout/shipping-address") Continue
 
     .persistent-summary
       .d-flex
