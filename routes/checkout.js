@@ -14,6 +14,7 @@ router.get('/sign-in',checkoutController.getCheckoutSignIn);
 router.post('/sign-in',checkoutController.checkoutSignIn);
 
 router.get('/shipping-address',function(req,res,next){
+ var baskets = req.cookies.basket;
   Date.prototype.dayNames = [
      "Sunday","Monday","Tuesday","Wednesday",
   "Thursday","Friday","Saturday",
@@ -44,7 +45,7 @@ Date.prototype.getShortDayName = function () {
 // usage:
 var d = new Date();
 var date = `${d.getShortDayName()} ${d.getShortMonthName()} ${d.getDate()}`;
-  return res.render('shipping-address',{date:date});
+  return res.render('shipping-address',{date:date,baskets:baskets});
 })
 
 //store address

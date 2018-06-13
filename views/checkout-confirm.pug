@@ -1,27 +1,23 @@
 extends partials/checkout-layout.pug
 block content
   
-  .completed-basket
+  .completed-basket.p-20
     img.img-complete.mr-30(src='/images/complete.svg')
     
     img.img-shipped.mr-15(src="/images/shipped.svg")    
     span.progress-head Shipping
     
     section.confirmed-products
-      .confirm-product.full-flex
-        .confirm-product__cont.mb-20
-          img.confirm-product__img(src="/images/product1.jpg")
-        div
-          span.arrives-word Arrives by 
-          span.bold.arrive-date= date
-          
-      .confirm-product.full-flex
-        .confirm-product__cont.mb-20
-          img.confirm-product__img(src="/images/product1.jpg")
-        div
-          span.arrives-word Arrives by 
-          span.bold.arrive-date= date
-  .sending-address
+      for basket in baskets
+        .confirm-product.full-flex
+          .confirm-product__cont.mb-20
+            img.confirm-product__img(src="https://s3.eu-west-2.amazonaws.com/glammycar/"+basket.image)
+          div
+            span.arrives-word Arrives by 
+            span.bold.arrive-date= date
+            
+      
+  .sending-address.p-20
       img.img-complete.mr-30(src='/images/complete.svg')
       span.progress-head Sending To
       .address-cont
