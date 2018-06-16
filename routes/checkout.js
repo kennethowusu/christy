@@ -55,4 +55,6 @@ router.post('/shipping-address',checkoutController.storeAddress);
 
 router.get('/confirm-order',checkoutController.getConfirmPage);
 
+router.post('/confirm-order',checkoutController.confirmOrder);
+
 module.exports = router;

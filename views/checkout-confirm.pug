@@ -34,6 +34,18 @@ block content
       .indicator-num-cont
         span.indicator-num.blk 3
       .indicator
-        span.indicator-words Shipping  options
-
+        if confirm_error
+          small.blk.error= confirm_error
+        span.indicator-words Confirm order
+            form(action="",method="post")
+              div.chkbox-area
+                input.filter(type="checkbox",id="foundation",name="confirm_order",value="true")
+                label(for="foundation") 
+                span.confirm-agree
+                    |By checking, you agree 
+                    |that you have reviewed your basket 
+                    | and are aware of your total basket estimate.
+                div
+              
+                  input.mr-auto.link-btn.link-btn--rounded.link-btn--emph.confirm-order(type="submit",value="Place Order")
                   

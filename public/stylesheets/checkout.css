@@ -426,6 +426,8 @@ a:hover {
   text-align: center;
   padding: 5px;
   margin-right: 20px;
+  min-width: 45px;
+  min-height: 45px;
 }
 .indicator-num-cont .indicator-num {
   height: 100%;
@@ -463,6 +465,24 @@ a:hover {
 }
 .persistent-summary .total, .persistent-summary .est-total {
   font-size: 1.2em;
+}
+
+.confirm-agree {
+  font-size: 1.1em;
+  margin-left: 10px;
+  font-weight: normal;
+}
+
+input.confirm-order {
+  width: auto;
+  margin-top: 20px;
+  padding: 11px 40px;
+}
+
+small.error {
+  color: red;
+  font-size: .8em;
+  font-weight: bold;
 }
 
 .img-complete {
