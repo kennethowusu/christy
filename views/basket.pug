@@ -1,108 +1,72 @@
 extends layout
 block content
    
-  
-    section.basket-p__total-cont.total-top.mb-20
-      span.em-15.basket-p__total.text-center.blk Est. total $36.30
-      a.signin.text-white.bg-nav.blk.text-center(href="#")
-        | Check Out
-    
-    
-    p.basket-title Your basket:
-      span.bold 
-       if basket 
-        | #{basket.total_quantity}
-       else   
-        | 0 
-      | Items
-    if items
-      for item in items
-      
-        .basket-p__cont  
-            section.basket-item.p-15.mr-auto
-              .d-flex.align-items-center
-                div.mr-15
-                  .basket-item__image
-                    img.control(src="/images/product1.jpg")
-                div.d-flex.flex-col  
-                  span.basket-item__title #{item.name}
-                    
-                  span.mt-15.bold.basket-item__price &#8373; #{item.price}
-                  
-                
-              .call-to-action.d-flex.justify-center
-                .d-flex.flex-col
-                    span Qty:
-                    select#quant-select
-                      option(value='1') 1
-                      option(value='2') 2
-                      option(value='3') 3
-                      option(value='3') 3
-                      option(value='4') 4
-                      option(value='5') 5
-                      option(value='6') 6
-                      option(value='7') 7
-                      option(value='8') 8
-                      option(value='9') 9
-                      option(value='10') 10
-                      option(value='11') 11
-                      option(value='12') 12
-                .d-flex.align-flex-end
-                  a.text-dark.underline.in-blk.mr-20(href="#") Remove
-                  a.text-dark.underline(href="#") Save for later
+    .basket-page-container
+        div.basket-div-cont
+          section.basket-p__total-cont.total-top.mb-20
+            span.em-15.basket-p__total.text-center.blk Est. total &#8373;#{basket.total}
+            a.signin.text-white.bg-nav.blk.text-center(href="/basket/checkout")
+              |  Check Out(#{basket.total_num_of_items})
           
-    //- 
-    //- 
-    //- p.basket-title Your basket:
-    //-     span.bold 
-    //-       | 2 
-    //-     | Items
-    //- .basket-p__cont  
-    //-       section.basket-item.p-15.mr-auto
-    //-         .d-flex.align-items-center
-    //-           div.mr-15
-    //-             .basket-item__image
-    //-               img.control(src="/images/product1.jpg")
-    //-           div.d-flex.flex-col  
-    //-             span.basket-item__title
-    //-               |Barbie Inspiring Women Series Amelia Earheart
-    //-             span.mt-15.bold.basket-item__price &#8373;29.99
-    //- 
-                    //- 
-                    //- .call-to-action.d-flex.justify-center
-                    //-   .d-flex.flex-col
-                    //-       span Qty:
-                    //-       select#quant-select
-                    //-         option(value='1') 1
-                    //-         option(value='2') 2
-                    //-         option(value='3') 3
-                    //-         option(value='3') 3
-                    //-         option(value='4') 4
-                    //-         option(value='5') 5
-                    //-         option(value='6') 6
-                    //-         option(value='7') 7
-                    //-         option(value='8') 8
-                    //-         option(value='9') 9
-                    //-         option(value='10') 10
-                    //-         option(value='11') 11
-                    //-         option(value='12') 12
-                    //-   .d-flex.align-flex-end
-                    //-     a.text-dark.underline.in-blk.mr-20(href="#") Remove
-                    //-     a.text-dark.underline(href="#") Save for later
-                    //- 
+            
+          p.basket-title.p-30 Your basket:
+            span.bold 
+             if basket 
+              | #{basket.total_quantity} Items
+             else   
+              | 0 Items
+          if !Items
+              p.ml-30 Your basket is empty. Go ahead and something!   
+          
+          if items
+            for item in items
+            
+              .basket-p__cont  
+                  section.basket-item.p-15.mr-auto
+                    .d-flex.align-items-center
+                      div.mr-15
+                        .basket-item__image
+                          img.control(src="/images/product1.jpg")
+                      div.d-flex.flex-col  
+                        span.basket-item__title #{item.name}
+                          
+                        span.mt-15.bold.basket-item__price &#8373; #{item.price}
+                        
                       
-      
+                    .call-to-action.d-flex.justify-center
+                      .d-flex.flex-col
+                          span Qty:
+                          select#quant-select
+                            option(value='1') 1
+                            option(value='2') 2
+                            option(value='3') 3
+                            option(value='3') 3
+                            option(value='4') 4
+                            option(value='5') 5
+                            option(value='6') 6
+                            option(value='7') 7
+                            option(value='8') 8
+                            option(value='9') 9
+                            option(value='10') 10
+                            option(value='11') 11
+                            option(value='12') 12
+                      .d-flex.align-flex-end
+                        a.text-dark.underline.in-blk.mr-20(href="#") Remove
+                        a.text-dark.underline(href="#") Save for later
+                
+          
+          
         .basket-p__total-cont.total-bottom
-          .d-flex.flex-col.p-15  
-              .d-flex
-                span.mr-auto.pb-15 Subtotal(1 item)
-                span &#8373;29.99
-              .d-flex
-                span.mr-auto Shipping
-                span &#8373;2.62
-          div      
-              .d-flex.pt-20.pl-15.fle
-                span.total.mr-auto Est total 
-                span.bold.total &#8373;38.60
-                  
-              a.text-white.bg-nav.text-center.in-blk.control.signin  Check Out
+              .d-flex.flex-col.p-15  
+                  .d-flex
+                    span.mr-auto.pb-15 Subtotal(1 item)
+                    span &#8373;#{basket.total}
+                  .d-flex
+                    span.mr-auto Shipping
+                    span &#8373;0.00
+              div      
+                  .d-flex.pt-20.pl-15.fle
+                    span.total.mr-auto Est total 
+                    span.bold.total &#8373;#{basket.total}
+                      
+                  a.text-white.bg-nav.text-center.in-blk.control.signin(href="/checkout")  Check Out(#{basket.total_num_of_items})

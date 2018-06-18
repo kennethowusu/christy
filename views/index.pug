@@ -1,6 +1,6 @@
 extends layout
 block content 
-  
+     
   section.d-flex.banner-cont
       a.d-flex.flex-col.banner(href='#')
         img.banner-img.control(src="/images/banner1.jpg")
@@ -110,48 +110,6 @@ block content
                         span.bold &#8373; #{men.price}
                         if men.variants.length > 1
                           span.shop-color /Shop #{men.variants.length} colors/  
+  include partials/footer.pug
 
-
-
-  
-        //- 
-        //- 
-        //- section.g-list-cont
-        //-             h3.text-center  Men's Collection
-        //-             ul.g-list
-        //- 
-        //- 
-        //-               li.g-list-item
-        //-                 a.g-list-item(href="#")
-        //-                   .g-list-img.d-flex.flex-col.align-items-center.justify-center
-        //-                     img.control(src="https://s3.eu-west-2.amazaws.com/glammycar/"+product.images[0].image)
-        //-                   .d-flex.flex-col.mt-20
-        //-                     span.mb-15 NYX Professional Makeup Retractable Eye liner
-        //-                     span.bold &#8373; 27.50
-        //-    img.control(src="https://s3.eu-west-2.amazaws.com/glammycar/"+product.images[0].image)
-        //-               li.g-list-item
-        //-                 a.g-list-item(href="#")
-        //-                   .g-list-img
-        //-                     img.control(src="https://s3.eu-west-2.amazaws.com/glammycar/"+product.images[0].image)
-        //-                   .d-flex.flex-col.mt-20
-        //-                     span.mb-15 NYX Professional Makeup Retractable Eye liner
-        //-                     span.bold &#8373; 27.50
-        //- 
-        //-               li.g-list-item
-        //-                 a.g-list-item(href="#")
-        //-                   .g-list-img
-        //-                     img.control(src="https://s3.eu-west-2.amazaws.com/glammycar/"+product.images[0].image)
-        //-                   .d-flex.flex-col.mt-20
-        //-                     span.mb-15 NYX Professional Makeup Retractable Eye liner
-        //-                     span.bold &#8373; 27.50
-        //- 
-        //-               img.control(src="https://s3.eu-west-2.amazaws.com/glammycar/"+product.images[0].image)
-        //-               li.g-list-item
-        //-                 a.g-list-item(href="#")
-        //-                   .g-list-img
-        //-                     img.control(src="https://s3.eu-west-2.amazaws.com/glammycar/"+product.images[0].image)
-        //-                   .d-flex.flex-col.mt-20
-        //-                     span.mb-15 NYX Professional Makeup Retractable Eye liner
-        //-                     span.bold &#8373; 27.50
-        //- 
   

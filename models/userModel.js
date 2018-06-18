@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
-
+var Favourite = require('./favouritesModel');
 var UserSchema = new Schema({
 
   firstname:{
@@ -22,8 +22,11 @@ var UserSchema = new Schema({
   password: {
     type:String,
     required:true
-
   },
+  favourites:[{
+    type:Schema.Types.ObjectId,
+    ref:"Favourite"
+  }],
 })
 
 

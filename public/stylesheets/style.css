@@ -138,6 +138,14 @@
   padding-bottom: 15px;
 }
 
+.pl-30 {
+  padding-left: 30px;
+}
+
+.ml-30 {
+  margin-left: 30px;
+}
+
 .pl-20 {
   padding-left: 20px;
 }
@@ -1083,7 +1091,6 @@ span.total {
 }
 
 .basket-p__total-cont {
-  margin-top: 30px;
   padding: 20px;
   border-left: 1px solid #e2d7d7;
   border-top: 1px solid #e2d7d7;
@@ -1109,7 +1116,6 @@ span.total {
 @media (min-width: 792px) {
   .basket-p__cont {
     display: flex;
-    border-right: 1px solid #000;
   }
 }
 
@@ -1253,6 +1259,66 @@ body {
 
 a:hover {
   text-decoration: none;
+}
+
+@media (min-width: 990px) {
+  .basket-page-container {
+    display: flex;
+  }
+}
+
+@media (min-width: 990px) {
+  .basket-p__cont {
+    border-bottom: 1px solid #d8d0d0;
+  }
+}
+
+@media (min-width: 990px) {
+  .basket-p__total-cont {
+    border-left: 1px solid #d8d0d0;
+  }
+}
+
+.basket-title {
+  padding: 30px;
+}
+
+@media (min-width: 990px) {
+  .basket-div-cont {
+    min-width: 80%;
+  }
+}
+
+.add-to-fav {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
+.footer {
+  margin-top: 50px;
+  padding-top: 50px;
+  background-color: #eee;
+  padding-bottom: 30px;
+}
+
+.footer-nav__item {
+  margin-right: 15px;
+}
+
+.footer-nav__link {
+  color: grey;
+}
+.footer-nav__link:hover {
+  color: #313030;
+}
+
+.footer-icons__link {
+  margin-right: 15px;
+}
+
+.footer-icons__img {
+  width: 30px;
+  height: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

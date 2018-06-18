@@ -46,5 +46,8 @@
   @import 'base/reset';
 
 
-  @import 'pages/basket';
+  @import 'pages/basket',
+          'pages/product';
     // 'base/typography';
+
+  @import 'layout/footer';

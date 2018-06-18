@@ -67,7 +67,7 @@ module.exports.getBasket = function(req,res,next){
   var total = 0;
   var total_num_of_items = 0;
   for(var product_id in savedBasket){
-    prices.push(parseInt(savedBasket[product_id].price) * parseInt(savedBasket[product_id].quantit));
+    prices.push(parseInt(savedBasket[product_id].price) * parseInt(savedBasket[product_id].quantity));
     no_items.push(parseInt(savedBasket[product_id].quantity));
   }
   prices.forEach(function(price){
@@ -84,7 +84,9 @@ module.exports.getBasket = function(req,res,next){
     total_num_of_items : total_num_of_items,
     total_quantity : total_quantity
   }
+  console.log(prices);
   console.log(savedBasket);
+  console.log(result);
     res.render('basket',{items:savedBasket,basket:result});
 
 

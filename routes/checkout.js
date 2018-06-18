@@ -1,20 +1,24 @@
 var express = require('express');
 var router = express.Router();
 var checkoutController = require('../controllers/checkoutController');
-
+var middleware = require('../middleware/index');
 
 
 
 
 
 //get checkout signin page
-router.get('/sign-in',checkoutController.getCheckoutSignIn);
+router.get('/',function(req,res,next){
+  res.redirect('/checkout/sign-in');
+})
+router.get('/sign-in',middleware.checkEmptyBasket,checkoutController.getCheckoutSignIn);
 
 //login if not signed inspect
 router.post('/sign-in',checkoutController.checkoutSignIn);
 
-router.get('/shipping-address',function(req,res,next){
+router.get('/shipping-address',middleware.checkEmptyBasket,function(req,res,next){
  var baskets = req.cookies.basket;
+ var address = req.cookies.address;
   Date.prototype.dayNames = [
      "Sunday","Monday","Tuesday","Wednesday",
   "Thursday","Friday","Saturday",
@@ -45,7 +49,7 @@ Date.prototype.getShortDayName = function () {
 // usage:
 var d = new Date();
 var date = `${d.getShortDayName()} ${d.getShortMonthName()} ${d.getDate()}`;
-  return res.render('shipping-address',{date:date,baskets:baskets});
+  return res.render('shipping-address',{date:date,baskets:baskets,address:address});
 })
 
 //store address
@@ -53,7 +57,7 @@ router.post('/shipping-address',checkoutController.storeAddress);
 
 
 
-router.get('/confirm-order',checkoutController.getConfirmPage);
+router.get('/confirm-order',middleware.checkEmptyBasket,checkoutController.getConfirmPage);
 
 router.post('/confirm-order',checkoutController.confirmOrder);
 

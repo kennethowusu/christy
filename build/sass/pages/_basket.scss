@@ -1,1 +1,25 @@
+.basket-page-container{
+  @media(min-width:990px){
+    display:flex;
 
+  }
+}
+
+.basket-p__cont{
+  @media(min-width:990px){
+      border-bottom:1px solid #d8d0d0;
+  }
+}
+.basket-p__total-cont{
+    @media(min-width:990px){
+      border-left:1px solid #d8d0d0;
+    }
+}
+.basket-title{
+  padding:30px;
+}
+.basket-div-cont{
+  @media(min-width:990px){
+    min-width:80%;
+  }
+}

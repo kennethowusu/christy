@@ -9,11 +9,12 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var createBasket = require('./middleware/index');
-
+var app = express();
 
 require('dotenv').config();
 //require routes
 var checkout = require('./routes/checkout');
+var favourites  = require('./routes/favourites');
 var basket = require('./routes/basket');
 var account = require('./routes/account');
 var index = require('./routes/index');
@@ -56,7 +57,9 @@ app.use(session({
 app.use(createBasket.cookie);
 //make userid available to templates
 app.use(function(req,res,next){
+
   res.locals.currentUser  =  req.session.userId;
+
   next();
 })
 //get returning Url after signin or signup
@@ -67,6 +70,7 @@ app.use(function(req,res,next){
 
 
 app.use('/checkout',checkout);
+app.use('/favourites',favourites);
 app.use('/users', users);
 app.use('/account',account);
 app.use('/basket',basket);

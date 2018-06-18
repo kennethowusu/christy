@@ -120,7 +120,6 @@ span.total{
   }
 }
 .basket-p__total-cont{
-  margin-top:30px;
   padding:20px;
 
   border-left:1px solid $dptbordercolor;
@@ -149,7 +148,7 @@ span.total{
    // }
     @media(min-width:792px){
     display:flex;
-    border-right:1px solid #000;
+
     }
 }
 .basket-item__title{

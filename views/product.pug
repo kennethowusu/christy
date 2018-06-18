@@ -51,9 +51,12 @@ block content
         
           button.signin.control.in-blk.text-center.transparent.no-border.bold.text-white.bg-nav#to-basket(type='submit',style="width:129px") Add to Basket
         div.favourite
-           button.no-border.fav.transparent
-             img#heart(src="/images/heart.svg")
-             span Add to favourite 
+           if currentUser
+             button.no-border.fav.transparent
+               img#heart(src="/images/heart.svg")
+               span Add to favourite 
+           else 
+              a.add-to-fav(href="/account/signin?returnUrl="+returnUrl) Add to favourite
       
       section.description
         span.about About This Item

@@ -1,4 +1,4 @@
-
+var product_id = $('#product_id').val();
 //=========================
 //FOR NAV
 //========================
@@ -216,3 +216,15 @@ function addedItem(addedItem){
 $('#modal-close,.hide-basket').on('click',function(){
   $('.basket-modal').fadeOut(1000);
 })
+
+$('.fav').on('click',addToFavourite);
+
+function addToFavourite(){
+
+  $.ajax({
+    type:"post",
+    url:"/favourites?product_id="+product_id
+  }).done(function(result){
+    console.log(result);
+  })
+}

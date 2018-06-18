@@ -1,7 +1,7 @@
 extends partials/checkout-layout.pug
 block content
   
-  div.rel.p-20
+  div.rel.p-20 
     a.abs.edit-basket-link(href="/basket") Edit
     .completed-basket
       img.img-complete.mr-30(src='/images/complete.svg')
@@ -20,7 +20,7 @@ block content
               
         
        
-  section.ship-Address
+  section.ship-Address#address-section
         .d-flex
           .indicator-num-cont.mr-20
             span.indicator-num.blk 2
@@ -34,15 +34,15 @@ block content
             .field
               label(for="firstname")
                 span.form-label First name*
-              input.text-field(type='text',id="firstname",name="firstname")
+              input.text-field(type='text',id="firstname",name="firstname",value= (address ? address.firstname : ''))
             .field
               label(for="lastname")
                 span.form-label Last name*
-              input.text-field(type="text",id="lastname",name="lastname")
+              input.text-field(type="text",id="lastname",name="lastname",value= (address ? address.lastname : ''))
             .field
               label(for="number")
                 span.form-label Phone number*
-              input.text-field(type="text",id="number",name="number")
+              input.text-field(type="text",id="number",name="number",value= (address ? address.number : ''))
             .field
               label(for="alt_number")
                 span.form-label Other Phone number
@@ -51,21 +51,21 @@ block content
             .field
               label(for="email")
                 span.form-label Email address for order notification*
-              input.text-field(type="text",name="email",id="email")
+              input.text-field(type="text",name="email",id="email",value= (address ? address.email : ''))
                 
             .field    
               label(for="region")
                 span.form-label Region*
-              input.text-field(type="text",id="region",name="region")
+              input.text-field(type="text",id="region",name="region",,value= (address ? address.region : ''))
             .field
               label(for="city")
                 span.form-label City* 
-              input.text-field(type="text",id="city",name="city")
+              input.text-field(type="text",id="city",name="city",value= (address ? address.city : ''))
             
             .field
               label(for="address")
                 span.form-label Address*
-              input.text-field(type="text",name="address",id="address")        
+              input.text-field(type="text",name="address",id="address",value= (address ? address.address : ''))        
             
             .field.d-flex.complete-total.align-items-center
               input.mr-auto.link-btn.link-btn--rounded.link-btn--emph(type="submit",value="Continue")
@@ -81,6 +81,6 @@ block content
       .indicator-num-cont
         span.indicator-num.blk 3
       .indicator
-        span.indicator-words Shipping  options
+        span.indicator-words Confirm Order
 
                   
