@@ -2,3 +2,46 @@
   color:#000;
   border-bottom:1px solid #000;
 }
+
+//for notification
+.fav-notification{
+  background-color:$navcolor;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px grey;
+  color:#fff;
+  text-align: center;
+  position:fixed;
+  width:150px;
+  bottom:0;
+  left:14px;
+  z-index:30;
+  visibility: hidden;
+}
+.fav-notification.show{
+  visibility: visible;
+  animation: fadein 0.5s , fadeout 0.5s 2.5s ;
+  animation-fill-mode:forwards;
+}
+keyframes fadein{
+  from{
+    bottom:0;
+    opacity:0;
+  }
+  to{
+    bottom:30px;
+    opacity:1;
+  }
+}
+
+@keyframes fadeout{
+  from{
+    bottom:30px;
+    opacity:1;
+  }
+  to{
+    bottom:0;
+    opacity: 0;
+  }
+}

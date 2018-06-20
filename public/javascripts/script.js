@@ -228,3 +228,10 @@ function addToFavourite(){
     console.log(result);
   })
 }
+
+// //for favourite notification
+// function showFavNotification(){
+//   $('.fav-notification').addClass('show');
+//   setTimeout(function(){$('.fav-notification').removeClass('show')},3000);
+// }
+// $("*").on('click',showFavNotification);

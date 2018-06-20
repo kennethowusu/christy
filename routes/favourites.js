@@ -3,11 +3,12 @@ var router = express.Router();
 var favouritesController = require('../controllers/favouritesController');
 
 
-//add favourites
+//create favourites
 router.post('/',favouritesController.addFavourite);
 
 
-
+//delete favourites
+router.delete('/',favouritesController.findFavourites);
 
 
 
