@@ -1,15 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var indexController = require('../controllers/indexController');
+var async = require('async');
 /* GET home page. */
 router.get('/',indexController.getIndexPage);
 
 
 /*GET makeup*/
 
-router.get('/makeup',function(req,res,next){
-  res.render('makeup',{title:"Makeup Stuffs"});
-})
+router.get('/makeup',indexController.getMakeup);
 
 /*GET Bath & Body*/
 

@@ -26,9 +26,10 @@
 //
 //   //import pages styles
 //   @import 'pages/home';
-
-  @import 'components/variables',
-          'components/mixins',
+//import base styles
+  @import 'components/variables';
+  @import 'base/reset';
+  @import 'components/mixins',
           'components/utilities',
           'components/nav',
           'components/banner',
@@ -40,14 +41,15 @@
           'components/basket',
           'components/g-list',
           'components/_basket_item',
-          'components/form';
+          'components/form',
+          'components/pagination';
 
-  //import base styles
-  @import 'base/reset';
+
 
 
   @import 'pages/basket',
-          'pages/product';
+          'pages/product',
+          'pages/favourites';
     // 'base/typography';
 
   @import 'layout/footer';

@@ -1,5 +1,6 @@
 extends layout
 block content 
+  
   .products-main-container
     
 
@@ -54,7 +55,7 @@ block content
     section.secondary-column
       
       section.filter-search.d-flex 
-        span.mr-auto 12 products
+        span.mr-auto #{total_makeup} products
         div.d-flex.justify-center.align-items-center
           button.no-border.transparent
            img(src="/images/list.svg")
@@ -70,51 +71,16 @@ block content
         
         
       ul.grid-view-cont.d-flex
-        li.item-grid-view
-          .grid-seperator
-            a(href="#").in-blk.grid-img-cont
-              img.grid-img(src="/images/product1.jpg")
-            div.grid-colors
-            
-            a(href="#")
-              h3.grid-title
-                Coty Airspot Translusenet Extra
-                Cover ...
-            
-            p.grid-price &#8373;5.97
-            
-          
-        li.item-grid-view
-          .grid-seperator
-            div.grid-img-cont
-              img.grid-img(src="/images/product2.jpg")
-            div.grid-colors
+        for makeup in makeups 
+          li.item-grid-view
+            .grid-seperator
+              a(href="/"+makeup.url+'/'+makeup._id).in-blk.grid-img-cont
+                img.grid-img(src="https://s3.eu-west-2.amazonaws.com/glammycare/"+makeup.images[0].image)
+              div.grid-colors
               
-            h3.grid-title
-              Coty Airspot Translusenet Extra
-              Cover ...
-            
-            p.grid-price &#8373;5.97
-            
-        li.item-grid-view
-          .grid-seperator
-            div.grid-img-cont
-              img.grid-img(src="/images/product2.jpg")
-            div.grid-colors
-                    
-            h3.grid-title
-              Coty Airspot Translusenet Extra
-              Cover ...
-            p.grid-price &#8373;5.97
-            
-            
-        li.item-grid-view
-          .grid-seperator
-            div.grid-img-cont
-              img.grid-img(src="/images/product2.jpg")
-            div.grid-colors
-                        
-            h3.grid-title
-              Coty Airspot Translusenet Extra
-              Cover ...
-            p.grid-price &#8373;5.97
+              a(href="/"+makeup.url+'/'+makeup._id)
+                h3.grid-title= makeup.name
+              
+              p.grid-price &#8373;#{makeup.price}
+              
+  include partials/footer.pug

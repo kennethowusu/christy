@@ -229,6 +229,23 @@ function addToFavourite(){
   })
 }
 
+//delete favourites
+ $(".del_fav").on('click',function(e){
+   e.preventDefault();
+   var target = $(e.target).parents('.fav_form');
+   var data = target.serialize();
+   console.log(data);
+   $.ajax({
+     type:"delete",
+     url:"/favourites",
+     data:data
+   }).done(function(results){
+     // location.reload();
+    target.remove();
+   })
+
+ })
+
 // //for favourite notification
 // function showFavNotification(){
 //   $('.fav-notification').addClass('show');

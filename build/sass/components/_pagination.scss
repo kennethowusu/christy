@@ -1,0 +1,32 @@
+
+
+.pagination__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:40px;
+}
+.pagination{
+
+}
+.pagination__current{
+  color:#2a2a2a;
+}
+.pagination__item{
+  display:inline-block;
+  margin-right:10px;
+}
+
+.pagination__link{
+  cursor:pointer ;
+  color:grey !important;
+  font-weight:bold;
+  &:hover{
+    color:#2a2a2a !important;
+
+  }
+}
+
+.pagination__link.disabled{
+  color:#2a2a2a !important;
+}

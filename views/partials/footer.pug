@@ -1,3 +1,23 @@
+
+
+if pages > 0
+  div.pagination__container
+    ul
+      if currentPage
+        if currentPage > 1
+          li.pagination__item
+            a.pagination__link(href="/"+pageName+"?page="+previousPage) &#171;
+      - for(page=0;page<pages;page++)
+        - var pageNum = page+1;
+         if pageNum == currentPage
+           li.pagination__item
+             a.disabled.pagination__link(disabled) #{pageNum}
+         else
+           li.pagination__item
+             a.pagination__link(href="/"+pageName+"?page="+pageNum) #{pageNum} 
+      if currentPage < pages
+        li.pagination__item
+          a.pagination__link(href="/"+pageName+"?page="+nextPage) &#187;
 footer.footer.d-flex.flex-col.flex-wrap.justify-center.align-items-center
      section &copy; #{new Date().getFullYear()} GlammyCare
    

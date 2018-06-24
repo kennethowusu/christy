@@ -8,7 +8,7 @@ router.post('/',favouritesController.addFavourite);
 
 
 //delete favourites
-router.delete('/',favouritesController.findFavourites);
+router.delete('/',favouritesController.deleteFavourite);
 
 
 

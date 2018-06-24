@@ -1,3 +1,38 @@
+* {
+  outline: 0;
+}
+*:focus {
+  outline: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button {
+  background-color: transparent;
+}
+button:hover {
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  font-family: "PT sans", "sans-serif";
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .d-flex {
   display: flex;
 }
@@ -1226,39 +1261,33 @@ img.error {
   height: 12px;
 }
 
-* {
-  outline: 0;
-}
-*:focus {
-  outline: 0;
-}
-
-button:focus {
-  outline: 0;
+.pagination__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 }
 
-button {
-  background-color: transparent;
+.pagination__current {
+  color: #2a2a2a;
 }
-button:hover {
+
+.pagination__item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.pagination__link {
   cursor: pointer;
+  color: grey !important;
+  font-weight: bold;
+}
+.pagination__link:hover {
+  color: #2a2a2a !important;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-body {
-  font-family: "PT sans", "sans-serif";
-}
-
-a:hover {
-  text-decoration: none;
+.pagination__link.disabled {
+  color: #2a2a2a !important;
 }
 
 @media (min-width: 990px) {
@@ -1335,6 +1364,10 @@ keyframes fadein to {
     opacity: 0;
   }
 }
+.fav-cont {
+  flex: 1 100%;
+}
+
 .footer {
   margin-top: 50px;
   padding-top: 50px;

@@ -85,3 +85,56 @@ module.exports.getVariant = function(req,res,next){
      return res.send(results);
   })
 }
+
+
+module.exports.getMakeup = function(req,res,next){
+  var currentPage = parseInt(req.query.page) || 1;
+  var perPage = 2;
+  var skip = (perPage * currentPage) - perPage;
+  Product.find({main_category:"makeup"}).populate('images').
+  skip(skip)
+  .limit(perPage)
+  .exec(function(err,makeups){
+    Product.count({main_category:"makeup"}).exec(function(err,total_count){
+      if(err){next(err)};
+      var count = currentPage * perPage;
+      var pages = Math.ceil(total_count/perPage);
+      var nextPage = currentPage + 1;
+      var previousPage = currentPage - 1;
+      var pageName = "makeup";
+        res.render('makeup', { title: 'Express',makeups:makeups,total_makeup:total_count,
+        count:count,pages:pages,currentPage:currentPage,
+        nextPage:nextPage,previousPage:previousPage,pageName:pageName
+
+      });
+    })
+  });
+}
+
+
+module.exports.getBathAndBody = function(req,res,next){
+
+
+  var currentPage = parseInt(req.query.page) || 1;
+  var perPage = 2;
+  var skip = (perPage * currentPage) - perPage;
+  Product.find({main_category:"men"}).populate('images').
+  skip(skip)
+  .limit(perPage)
+  .exec(function(err,makeups){
+    Product.count({main_category:"men"}).exec(function(err,total_count){
+      if(err){next(err)};
+      var count = currentPage * perPage;
+      var pages = Math.ceil(total_count/perPage);
+      var nextPage = currentPage + 1;
+      var previousPage = currentPage - 1;
+      var pageName = "makeup";
+        res.render('makeup', { title: 'Express',makeups:makeups,total_makeup:total_count,
+        count:count,pages:pages,currentPage:currentPage,
+        nextPage:nextPage,previousPage:previousPage,pageName:pageName
+
+      });
+    })
+  });
+
+}
